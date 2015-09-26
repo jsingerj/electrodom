@@ -13,7 +13,6 @@
 		C1F8E1231BB7287100484FBA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F8E1221BB7287100484FBA /* ViewController.m */; };
 		C1F8E1261BB7287100484FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F8E1241BB7287100484FBA /* Main.storyboard */; };
 		C1F8E1281BB7287100484FBA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1F8E1271BB7287100484FBA /* Images.xcassets */; };
-		C1F8E12B1BB7287100484FBA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F8E1291BB7287100484FBA /* LaunchScreen.xib */; };
 		C1F8E1371BB7287200484FBA /* ElectrodomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F8E1361BB7287200484FBA /* ElectrodomTests.m */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		C1F8E1221BB7287100484FBA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C1F8E1251BB7287100484FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1F8E1271BB7287100484FBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C1F8E12A1BB7287100484FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C1F8E1301BB7287200484FBA /* ElectrodomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectrodomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F8E1351BB7287200484FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1F8E1361BB7287200484FBA /* ElectrodomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectrodomTests.m; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				C1F8E1221BB7287100484FBA /* ViewController.m */,
 				C1F8E1241BB7287100484FBA /* Main.storyboard */,
 				C1F8E1271BB7287100484FBA /* Images.xcassets */,
-				C1F8E1291BB7287100484FBA /* LaunchScreen.xib */,
 				C1F8E11E1BB7287100484FBA /* Electrodom.xcdatamodeld */,
 				C1F8E1171BB7287100484FBA /* Supporting Files */,
 			);
@@ -203,7 +200,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F8E1261BB7287100484FBA /* Main.storyboard in Resources */,
-				C1F8E12B1BB7287100484FBA /* LaunchScreen.xib in Resources */,
 				C1F8E1281BB7287100484FBA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,14 +250,6 @@
 				C1F8E1251BB7287100484FBA /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C1F8E1291BB7287100484FBA /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C1F8E12A1BB7287100484FBA /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
