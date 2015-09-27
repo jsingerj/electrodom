@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalElectrodom.h"
+@interface ViewController : UIViewController<UITextFieldDelegate,UIAlertViewDelegate,UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *user_name;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+- (IBAction)logIn:(id)sender;
 
-@interface ViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
