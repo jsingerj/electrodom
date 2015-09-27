@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="492" width="375" height="43"/>
                                 <state key="normal" title="Iniciar Sesión"/>
                                 <connections>
-                                    <segue destination="aVP-s7-Pf2" kind="presentation" id="zky-jP-QaP"/>
+                                    <action selector="logIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6Tr-e2-zPK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uob-Qm-28N">
@@ -46,6 +46,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-zW-1G5">
+                                <rect key="frame" x="177" y="447" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Brj-gn-n7N"/>
+                                    <constraint firstAttribute="width" constant="20" id="mIo-SA-B4I"/>
+                                </constraints>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-Xh-NCv">
                                 <rect key="frame" x="6" y="566" width="375" height="56"/>
                                 <state key="normal" title="Registrar">
@@ -62,6 +70,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="4P6-Xd-8UZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ZhX-zW-1G5" id="3LQ-ew-AFh"/>
+                        <outlet property="password" destination="IJE-Z1-bDf" id="N6d-Sg-Aj9"/>
+                        <outlet property="user_name" destination="hX6-Dh-YnT" id="9zo-cY-JX1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,7 +131,7 @@
         <!--Navigation Controller-->
         <scene sceneID="suD-4o-bYf">
             <objects>
-                <navigationController id="aVP-s7-Pf2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aVP-s7-Pf2" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FDz-gF-GEc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
