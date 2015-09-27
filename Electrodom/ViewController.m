@@ -22,8 +22,8 @@
     self.password.delegate=self;
     
     [super viewDidLoad];
-    [self.activityIndicator setHidden:NO];
-    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidden:YES];
+    [self.activityIndicator stopAnimating];
     
     
     
