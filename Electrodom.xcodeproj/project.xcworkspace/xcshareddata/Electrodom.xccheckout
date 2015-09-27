@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0601CF0E-F926-439F-9D6D-0C344ED493D8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Electrodom</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>375D7FF11C089EC60B16FFDFBD219C8F1C54DDFA</key>
+		<string>https://github.com/jsingerj/electrodom.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Electrodom.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>375D7FF11C089EC60B16FFDFBD219C8F1C54DDFA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jsingerj/electrodom.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>375D7FF11C089EC60B16FFDFBD219C8F1C54DDFA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>375D7FF11C089EC60B16FFDFBD219C8F1C54DDFA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Electrodom</string>
+		</dict>
+	</array>
+</dict>
+</plist>
