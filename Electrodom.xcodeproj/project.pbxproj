@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89CF06A11BC089A4001DB09B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A01BC089A3001DB09B /* EditViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06A41BC08E6A001DB09B /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A31BC08E6A001DB09B /* StartViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06A81BC1B991001DB09B /* MessageDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A71BC1B991001DB09B /* MessageDictionary.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06AB1BC1BFCB001DB09B /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06AA1BC1BFCB001DB09B /* Product.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06AE1BC1C5D3001DB09B /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06AD1BC1C5D3001DB09B /* ProductViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06B01BC1D6B4001DB09B /* ProductDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C1ECDBD41BB7504000CC2A9A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC51BB74F9F00CC2A9A /* Bolts.framework */; };
 		C1ECDBD51BB7504000CC2A9A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC61BB74F9F00CC2A9A /* Parse.framework */; };
 		C1ECDBD61BB7504000CC2A9A /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC71BB74F9F00CC2A9A /* ParseCrashReporting.framework */; };
@@ -48,6 +55,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		89CF069F1BC089A3001DB09B /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		89CF06A01BC089A3001DB09B /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		89CF06A21BC08E6A001DB09B /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		89CF06A31BC08E6A001DB09B /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		89CF06A61BC1B991001DB09B /* MessageDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDictionary.h; sourceTree = "<group>"; };
+		89CF06A71BC1B991001DB09B /* MessageDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDictionary.m; sourceTree = "<group>"; };
+		89CF06A91BC1BFCB001DB09B /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		89CF06AA1BC1BFCB001DB09B /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		89CF06AC1BC1C5D3001DB09B /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		89CF06AD1BC1C5D3001DB09B /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		89CF06AF1BC1D6B4001DB09B /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		89CF06B01BC1D6B4001DB09B /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		89FB77D21BB8A8670043EF4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		89FB77D31BB8A8670043EF4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		C1ECDBC51BB74F9F00CC2A9A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Electrodom/parse-library-1.8.5/Bolts.framework"; sourceTree = "<group>"; };
 		C1ECDBC61BB74F9F00CC2A9A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Electrodom/parse-library-1.8.5/Parse.framework"; sourceTree = "<group>"; };
 		C1ECDBC71BB74F9F00CC2A9A /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "Electrodom/parse-library-1.8.5/ParseCrashReporting.framework"; sourceTree = "<group>"; };
@@ -124,6 +145,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89CF06A51BC1B979001DB09B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				89CF06A61BC1B991001DB09B /* MessageDictionary.h */,
+				89CF06A71BC1B991001DB09B /* MessageDictionary.m */,
+				89CF06A91BC1BFCB001DB09B /* Product.h */,
+				89CF06AA1BC1BFCB001DB09B /* Product.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		C1ECDBD31BB7502400CC2A9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +204,7 @@
 		C1F8E1161BB7287100484FBA /* Electrodom */ = {
 			isa = PBXGroup;
 			children = (
+				89CF06A51BC1B979001DB09B /* Core */,
 				C1FFDEF31BB734D40087DC68 /* Main.storyboard */,
 				C1F8E11B1BB7287100484FBA /* AppDelegate.h */,
 				C1F8E11C1BB7287100484FBA /* AppDelegate.m */,
@@ -215,10 +248,20 @@
 		C1FFDEFF1BB73F640087DC68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				89FB77D31BB8A8670043EF4A /* RegisterViewController.m */,
+				89FB77D21BB8A8670043EF4A /* RegisterViewController.h */,
 				C1F8E1211BB7287100484FBA /* ViewController.h */,
 				C1F8E1221BB7287100484FBA /* ViewController.m */,
 				C1FFDF001BB73FFC0087DC68 /* HomeViewController.h */,
 				C1FFDF011BB73FFC0087DC68 /* HomeViewController.m */,
+				89CF069F1BC089A3001DB09B /* EditViewController.h */,
+				89CF06A01BC089A3001DB09B /* EditViewController.m */,
+				89CF06A21BC08E6A001DB09B /* StartViewController.h */,
+				89CF06A31BC08E6A001DB09B /* StartViewController.m */,
+				89CF06AC1BC1C5D3001DB09B /* ProductViewController.h */,
+				89CF06AD1BC1C5D3001DB09B /* ProductViewController.m */,
+				89CF06AF1BC1D6B4001DB09B /* ProductDetailViewController.h */,
+				89CF06B01BC1D6B4001DB09B /* ProductDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -267,7 +310,7 @@
 		C1F8E10C1BB7287100484FBA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jacobo Singer";
 				TargetAttributes = {
 					C1F8E1131BB7287100484FBA = {
@@ -324,8 +367,15 @@
 			files = (
 				C1F8E1201BB7287100484FBA /* Electrodom.xcdatamodeld in Sources */,
 				C1F8E11D1BB7287100484FBA /* AppDelegate.m in Sources */,
+				89CF06AB1BC1BFCB001DB09B /* Product.m in Sources */,
 				C1FFDEFE1BB739EC0087DC68 /* GlobalElectrodom.m in Sources */,
+				89CF06A41BC08E6A001DB09B /* StartViewController.m in Sources */,
 				C1F8E1231BB7287100484FBA /* ViewController.m in Sources */,
+				89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */,
+				89CF06AE1BC1C5D3001DB09B /* ProductViewController.m in Sources */,
+				89CF06A81BC1B991001DB09B /* MessageDictionary.m in Sources */,
+				89CF06A11BC089A4001DB09B /* EditViewController.m in Sources */,
+				89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */,
 				C1F8E11A1BB7287100484FBA /* main.m in Sources */,
 				C1FFDF021BB73FFC0087DC68 /* HomeViewController.m in Sources */,
 			);
@@ -381,6 +431,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -448,6 +499,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Electrodom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -463,6 +515,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Electrodom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -481,6 +534,7 @@
 				);
 				INFOPLIST_FILE = ElectrodomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Electrodom.app/Electrodom";
 			};
@@ -496,6 +550,7 @@
 				);
 				INFOPLIST_FILE = ElectrodomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Electrodom.app/Electrodom";
 			};
