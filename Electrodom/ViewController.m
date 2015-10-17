@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Parse/Parse.h>
 
+
 @interface ViewController ()
 
 @end
@@ -25,9 +26,6 @@
     [super viewDidLoad];
     [self.activityIndicator setHidden:YES];
     [self.activityIndicator stopAnimating];
-    
-    
-    
     
     
     }
@@ -62,6 +60,7 @@
                                             } else {
                                                 NSString *message = [error localizedDescription];
                                                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Nombre de usuario y su Contraseña son incorrectos" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                    password.text=@"";
                                                 [alertView show];
                                                 
                                             }
@@ -71,11 +70,15 @@
                                         }];
         
     }
+    
 }
 
 
 -(void)showHome{
     UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationViewController"];
-    [self presentViewController:viewController animated:YES completion:nil];}
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+
 
 @end

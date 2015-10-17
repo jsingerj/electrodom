@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Order.h"
 @interface GlobalElectrodom : NSObject
 
 
 +(GlobalElectrodom *)getInstance;
-
--(int)signIn:(NSString *)email pass:(NSString *)pass;
+@property (weak, nonatomic) Order *order;
 
 
 

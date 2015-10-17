@@ -20,7 +20,7 @@
 
 - (NSString * )getMessage:(NSString *)fromString  {
     NSDictionary* messages = @{
-                                   @"Este error": @"Hola",
+                                   @"missing username": @"Complete su mail por favor.",
                                    @"invalid email address": @"Email inválido",
                                    @"C": @4,
                                    

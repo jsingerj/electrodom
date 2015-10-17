@@ -13,7 +13,7 @@
 @interface RegisterViewController : UIViewController<UITextFieldDelegate,UIAlertViewDelegate,UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
-@property (weak, nonatomic) IBOutlet UITextField *phone;
+
 @property (weak, nonatomic) IBOutlet UITextField *last_name;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *repeat_password;

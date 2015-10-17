@@ -10,9 +10,24 @@
 
 @implementation Product
 
-    @synthesize name; // name of product
+ /*   @synthesize name; // name of product
     @synthesize description; //product description
     @synthesize picture; // image of recipe
     @synthesize  price;
+*/
+
+@dynamic name;
+@dynamic description;
+@dynamic picture;
+@dynamic brand;
+@dynamic price;
+@dynamic objectId;
+@dynamic userId;
+@dynamic quantity;
+
+
++ (NSString *)parseClassName {
+    return @"Product";
+}
 
 @end

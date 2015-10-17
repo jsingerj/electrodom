@@ -3,7 +3,7 @@
 //  Electrodom
 //
 //  Created by Juan Cambón on 4/10/15.
-//  Copyright © 2015 Jacobo Singer. All rights reserved.
+//  Copyright © 2015 Juan Cambón. All rights reserved.
 //
 
 #import "ProductViewController.h"
@@ -65,16 +65,8 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
-    // If no objects are loaded in memory, we look to the cache first to fill the table
-    // and then subsequently do a query against the network.
-    /*    if ([self.objects count] == 0) {
-     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-     }*/
-    
-    //    [query orderByAscending:@"name"];
-    
-    return query;
+  
+        return query;
 }
 
 
@@ -105,9 +97,17 @@
     description.text = desc;
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
     int price = [object objectForKey:@"price"];
+   
     NSString *strFromInt = [NSString stringWithFormat:@"%d",price];
+    NSString *varyingString1 = @"$";
+    NSString *varyingString2 = strFromInt;
+    NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
+    prepTimeLabel.text = str ;
+    
+    UILabel *brandLabel = (UILabel*) [cell viewWithTag:105];
+    brandLabel.text = [object objectForKey:@"Marca"];
 
-    prepTimeLabel.text = strFromInt ;
+    
     
     return cell;
 }
@@ -126,11 +126,12 @@
         ProductDetailViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Product *product = [[Product alloc] init];
+        Product *product = [[Product alloc] initWithClassName:@"Product"];
         product.name = [object objectForKey:@"name"];
-        product.picture = [object objectForKey:@"picutre"];
+        product.picture = [object objectForKey:@"picture"];
         product.price = [object objectForKey:@"price"];
-        product.description = [object objectForKey:@"description"];
+        product.description = [object objectForKey:@"Description"];
+        product.brand = [object objectForKey:@"Marca"];
         destViewController.product = product;
         
     }

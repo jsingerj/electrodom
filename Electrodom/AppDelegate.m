@@ -18,6 +18,7 @@
     
     
     
+    [Parse enableLocalDatastore];
     
     
     // ****************************************************************************
@@ -28,8 +29,6 @@
    // [PFFacebookUtils initializeFacebook];
   //  [PFTwitterUtils initializeWithConsumerKey:@"your_twitter_consumer_key" consumerSecret:@"your_twitter_consumer_secret"];
     
-    
-    [Parse enableLocalDatastore];
     
     // Initialize Parse.
     [Parse setApplicationId:@"175QNzZAeHbiy2HMINLxc7EzgaV45xChKHkEFJaZ"
@@ -46,7 +45,9 @@
     
     
     
+    [PFUser enableRevocableSessionInBackground];
     
+       
     // Override point for customization after application launch.
     return YES;
 }
