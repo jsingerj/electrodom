@@ -7,24 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89CF06A11BC089A4001DB09B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A01BC089A3001DB09B /* EditViewController.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06A81BC1B991001DB09B /* MessageDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A71BC1B991001DB09B /* MessageDictionary.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06AB1BC1BFCB001DB09B /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06AA1BC1BFCB001DB09B /* Product.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06AE1BC1C5D3001DB09B /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06AD1BC1C5D3001DB09B /* ProductViewController.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06B01BC1D6B4001DB09B /* ProductDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06B51BC6383C001DB09B /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06B41BC6383C001DB09B /* images.jpg */; settings = {ASSET_TAGS = (); }; };
-		89CF06B81BC70832001DB09B /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06B71BC70832001DB09B /* CartViewController.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06C11BC83AAC001DB09B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06C01BC83AAC001DB09B /* SWRevealViewController.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06C31BCDEAC9001DB09B /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06C21BCDEAC9001DB09B /* cart.png */; settings = {ASSET_TAGS = (); }; };
-		89CF06C61BCDF02C001DB09B /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06C51BCDF02C001DB09B /* Order.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06CA1BCDFF30001DB09B /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06C91BCDFF30001DB09B /* ProductViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06CC1BD015E5001DB09B /* garbage12.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06CB1BD015E4001DB09B /* garbage12.png */; settings = {ASSET_TAGS = (); }; };
-		89CF06CE1BD0275B001DB09B /* shopping122.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06CD1BD0275B001DB09B /* shopping122.png */; settings = {ASSET_TAGS = (); }; };
-		89CF06D01BD02B46001DB09B /* shopping100.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06CF1BD02B46001DB09B /* shopping100.png */; settings = {ASSET_TAGS = (); }; };
-		89CF06D21BD030FC001DB09B /* nfc1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06D11BD030FC001DB09B /* nfc1.png */; settings = {ASSET_TAGS = (); }; };
-		89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D41BD28537001DB09B /* OrderViewController.m */; settings = {ASSET_TAGS = (); }; };
-		89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */; settings = {ASSET_TAGS = (); }; };
-		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06A11BC089A4001DB09B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A01BC089A3001DB09B /* EditViewController.m */; };
+		89CF06A81BC1B991001DB09B /* MessageDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06A71BC1B991001DB09B /* MessageDictionary.m */; };
+		89CF06AB1BC1BFCB001DB09B /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06AA1BC1BFCB001DB09B /* Product.m */; };
+		89CF06AE1BC1C5D3001DB09B /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06AD1BC1C5D3001DB09B /* ProductViewController.m */; };
+		89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06B01BC1D6B4001DB09B /* ProductDetailViewController.m */; };
+		89CF06B51BC6383C001DB09B /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06B41BC6383C001DB09B /* images.jpg */; };
+		89CF06B81BC70832001DB09B /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06B71BC70832001DB09B /* CartViewController.m */; };
+		89CF06C31BCDEAC9001DB09B /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06C21BCDEAC9001DB09B /* cart.png */; };
+		89CF06C61BCDF02C001DB09B /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06C51BCDF02C001DB09B /* Order.m */; };
+		89CF06CA1BCDFF30001DB09B /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06C91BCDFF30001DB09B /* ProductViewCell.m */; };
+		89CF06CC1BD015E5001DB09B /* garbage12.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06CB1BD015E4001DB09B /* garbage12.png */; };
+		89CF06CE1BD0275B001DB09B /* shopping122.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06CD1BD0275B001DB09B /* shopping122.png */; };
+		89CF06D01BD02B46001DB09B /* shopping100.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06CF1BD02B46001DB09B /* shopping100.png */; };
+		89CF06D21BD030FC001DB09B /* nfc1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06D11BD030FC001DB09B /* nfc1.png */; };
+		89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D41BD28537001DB09B /* OrderViewController.m */; };
+		89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */; };
+		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; };
+		C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10793E91BD2D2700024A633 /* NavigationViewController.m */; };
+		C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */; };
+		C109E7301BD2DC68000981F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C109E72F1BD2DC68000981F2 /* Foundation.framework */; };
+		C109E7321BD2DC78000981F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C109E7311BD2DC78000981F2 /* UIKit.framework */; };
 		C1ECDBD41BB7504000CC2A9A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC51BB74F9F00CC2A9A /* Bolts.framework */; };
 		C1ECDBD51BB7504000CC2A9A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC61BB74F9F00CC2A9A /* Parse.framework */; };
 		C1ECDBD61BB7504000CC2A9A /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC71BB74F9F00CC2A9A /* ParseCrashReporting.framework */; };
@@ -79,8 +82,6 @@
 		89CF06B41BC6383C001DB09B /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpg; sourceTree = "<group>"; };
 		89CF06B61BC70832001DB09B /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		89CF06B71BC70832001DB09B /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
-		89CF06BF1BC83AAC001DB09B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		89CF06C01BC83AAC001DB09B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		89CF06C21BCDEAC9001DB09B /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
 		89CF06C41BCDF02C001DB09B /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		89CF06C51BCDF02C001DB09B /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
@@ -96,6 +97,12 @@
 		89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDownPicker.m; sourceTree = "<group>"; };
 		89FB77D21BB8A8670043EF4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		89FB77D31BB8A8670043EF4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C10793E81BD2D2700024A633 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		C10793E91BD2D2700024A633 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		C109E72C1BD2DA7E000981F2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SlideOutMenuFiles/SWRevealViewController.h; sourceTree = "<group>"; };
+		C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SlideOutMenuFiles/SWRevealViewController.m; sourceTree = "<group>"; };
+		C109E72F1BD2DC68000981F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C109E7311BD2DC78000981F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1ECDBC51BB74F9F00CC2A9A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Electrodom/parse-library-1.8.5/Bolts.framework"; sourceTree = "<group>"; };
 		C1ECDBC61BB74F9F00CC2A9A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Electrodom/parse-library-1.8.5/Parse.framework"; sourceTree = "<group>"; };
 		C1ECDBC71BB74F9F00CC2A9A /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "Electrodom/parse-library-1.8.5/ParseCrashReporting.framework"; sourceTree = "<group>"; };
@@ -140,6 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C109E7321BD2DC78000981F2 /* UIKit.framework in Frameworks */,
+				C109E7301BD2DC68000981F2 /* Foundation.framework in Frameworks */,
 				C1ECDBF31BB753BE00CC2A9A /* Social.framework in Frameworks */,
 				C1ECDBF11BB753B700CC2A9A /* Accounts.framework in Frameworks */,
 				C1ECDBEF1BB753AA00CC2A9A /* libsqlite3.dylib in Frameworks */,
@@ -185,15 +194,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		89CF06BE1BC83A85001DB09B /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				89CF06BF1BC83AAC001DB09B /* SWRevealViewController.h */,
-				89CF06C01BC83AAC001DB09B /* SWRevealViewController.m */,
-			);
-			name = SWRevealViewController;
-			sourceTree = "<group>";
-		};
 		89CF06C71BCDFF0C001DB09B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +206,8 @@
 		C1ECDBD31BB7502400CC2A9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C109E7311BD2DC78000981F2 /* UIKit.framework */,
+				C109E72F1BD2DC68000981F2 /* Foundation.framework */,
 				C1ECDBF21BB753BE00CC2A9A /* Social.framework */,
 				C1ECDBF01BB753B700CC2A9A /* Accounts.framework */,
 				C1ECDBEE1BB753AA00CC2A9A /* libsqlite3.dylib */,
@@ -252,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				89CF06C71BCDFF0C001DB09B /* Views */,
-				89CF06BE1BC83A85001DB09B /* SWRevealViewController */,
 				89CF06A51BC1B979001DB09B /* Core */,
 				C1FFDEF31BB734D40087DC68 /* Main.storyboard */,
 				C1F8E11B1BB7287100484FBA /* AppDelegate.h */,
@@ -303,6 +304,10 @@
 		C1FFDEFF1BB73F640087DC68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C109E72C1BD2DA7E000981F2 /* SWRevealViewController.h */,
+				C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */,
+				C10793E81BD2D2700024A633 /* NavigationViewController.h */,
+				C10793E91BD2D2700024A633 /* NavigationViewController.m */,
 				89FB77D31BB8A8670043EF4A /* RegisterViewController.m */,
 				89FB77D21BB8A8670043EF4A /* RegisterViewController.h */,
 				C1F8E1211BB7287100484FBA /* ViewController.h */,
@@ -431,17 +436,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F8E1201BB7287100484FBA /* Electrodom.xcdatamodeld in Sources */,
+				C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */,
 				C1F8E11D1BB7287100484FBA /* AppDelegate.m in Sources */,
 				89CF06AB1BC1BFCB001DB09B /* Product.m in Sources */,
 				89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */,
 				89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */,
 				C1FFDEFE1BB739EC0087DC68 /* GlobalElectrodom.m in Sources */,
 				C1F8E1231BB7287100484FBA /* ViewController.m in Sources */,
+				C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */,
 				89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */,
 				89CF06C61BCDF02C001DB09B /* Order.m in Sources */,
 				89CF06AE1BC1C5D3001DB09B /* ProductViewController.m in Sources */,
 				89CF06CA1BCDFF30001DB09B /* ProductViewCell.m in Sources */,
-				89CF06C11BC83AAC001DB09B /* SWRevealViewController.m in Sources */,
 				89CF06A81BC1B991001DB09B /* MessageDictionary.m in Sources */,
 				89CF06A11BC089A4001DB09B /* EditViewController.m in Sources */,
 				89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */,
@@ -568,6 +574,7 @@
 				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Electrodom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -584,6 +591,7 @@
 				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Electrodom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

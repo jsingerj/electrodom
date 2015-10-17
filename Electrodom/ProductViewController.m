@@ -9,6 +9,7 @@
 #import "ProductViewController.h"
 #import "ProductDetailViewController.h"
 #import "Product.h"
+#import "SWRevealViewController.h"
 @interface ProductViewController ()
 
 
@@ -48,6 +49,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
+    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 }
 
 

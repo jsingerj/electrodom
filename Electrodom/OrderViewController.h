@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "DownPicker.h"
+//#import "DownPicker.h"
 
 @interface OrderViewController : ViewController
 
@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *adress;
 
 @property (weak, nonatomic) IBOutlet UILabel *total_price;
-@property (weak, nonatomic) IBOutlet DownPicker *downPicker;
+//@property (weak, nonatomic) IBOutlet DownPicker *downPicker;
 
 @end

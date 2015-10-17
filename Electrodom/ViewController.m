@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
-
+#import "SWRevealViewController.h"
 
 @interface ViewController ()
 
@@ -75,7 +75,7 @@
 
 
 -(void)showHome{
-    UINavigationController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationViewController"];
+    SWRevealViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationViewController"];
     [self presentViewController:viewController animated:YES completion:nil];
 }
 

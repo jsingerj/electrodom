@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *repeat_password;
 @property (weak, nonatomic) IBOutlet UITextField *change_password;
+@property (weak,nonatomic) IBOutlet UIBarButtonItem *barButton;
 
 @end

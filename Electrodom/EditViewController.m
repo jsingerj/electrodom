@@ -8,7 +8,7 @@
 
 #import "EditViewController.h"
 #import <Parse/Parse.h>
-
+#import "SWRevealViewController.h"
 @implementation EditViewController
 
 @synthesize username;
@@ -32,6 +32,12 @@
     NSString *phoneString = [NSString stringWithFormat:@"%d",phone];
     self.phone.text=phoneString;
     self.username.text= [user username];
+    // Do any additional setup after loading the view, typically from a nib.
+    _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
+    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
       [super viewDidLoad];
     
     
