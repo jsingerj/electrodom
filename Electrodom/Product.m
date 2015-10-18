@@ -24,6 +24,7 @@
 @dynamic objectId;
 @dynamic userId;
 @dynamic quantity;
+@dynamic categoryId;
 
 + (NSString *)parseClassName {
     return @"Product";

@@ -20,6 +20,8 @@
 
 
 
+
+
 - (id)initWithCoder:(NSCoder *)aCoder
 {
     self = [super initWithCoder:aCoder];
@@ -43,6 +45,8 @@
     }
     return self;
 }
+
+
 
 
 
@@ -103,7 +107,7 @@
     
     
     UILabel *prepTimeLabel = cell.total_price;
-    int price = [object objectForKey:@"price"];
+    long  price = [[object objectForKey:@"price"] longValue];
     NSString *strFromInt = [NSString stringWithFormat:@"%d",price];
     
     
@@ -121,22 +125,26 @@
 - (IBAction)valueChanged:(UIStepper *)sender {
     double value = [sender value];
     ProductViewCell* cell =  (ProductViewCell*)[[sender superview]superview];
+   
     NSNumber *myDoubleNumber = [NSNumber numberWithDouble:value];
     cell.quantity.text=[myDoubleNumber stringValue];
     Product *product = cell.product;
-    int price = product.price;
+    long price = product.price;
     cell.total_price.text = [[NSNumber numberWithDouble:price* value] stringValue];
   }
 
 - (IBAction)deleteItem:(id)sender {
-    [self.product unpin];
+    [self loadObjects];
     
 }
 - (IBAction)delete_Cart:(id)sender {
     [Product unpinAllObjects];
+    [self loadObjects];
     
 
 }
+
+
 
 
 @end

@@ -17,6 +17,9 @@
 
 
 
+
+
+
 - (void)viewDidLoad
 {
     card_number.userInteractionEnabled = NO;

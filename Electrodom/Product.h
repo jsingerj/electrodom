@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSString *objectId;
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic) int  quantity;
+@property (nonatomic, strong) NSString *categoryId;
+
 
 
 @end

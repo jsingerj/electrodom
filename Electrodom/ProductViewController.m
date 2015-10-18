@@ -140,6 +140,7 @@
         NSString  * desc =[object objectForKey:@"description"];
         product.description =desc;
         product.brand = [object objectForKey:@"Marca"];
+        product.categoryId = [object objectForKey:@"categoryId"];
         destViewController.product = product;
         
     }

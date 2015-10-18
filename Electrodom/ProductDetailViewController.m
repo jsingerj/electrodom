@@ -17,6 +17,7 @@
 @synthesize description;
 @synthesize product_brand;
 @synthesize product_price;
+@synthesize category;
 
 
 @synthesize cart_button;
@@ -62,12 +63,12 @@
     long price  = product.price;
     
     
-    NSString *strFromInt = [[NSNumber numberWithLong:product.price] stringValue];
+    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
     
     NSString *str = [NSString stringWithFormat: @"%@ %@", @"$", strFromInt];
     product_price.text = str;
     product_brand.text = self.product.brand;
-    
+  //  category.text = [product objectForKey:@"CategoryId"];
     
     [super viewDidLoad];
     
@@ -85,6 +86,10 @@
 
 - (IBAction)addProductToCart:(id)sender {
     [self.product pin];
+    
+    
+   // [leftButton setTitle:@"0" forState:UIControlStateNormal]; actualizar el el dato de la cantidad de productos
+    
     
 }
 

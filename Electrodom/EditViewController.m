@@ -28,8 +28,8 @@
     self.last_name.text=[user objectForKey:@"last_name"];
     self.name.text =[user objectForKey:@"name"];
     self.ID.text =[user objectForKey:@"document_number"];
-    int phone = [user objectForKey:@"phone"];
-    NSString *phoneString = [NSString stringWithFormat:@"%d",phone];
+    long  phone = [[user objectForKey:@"phone"] longValue];
+     NSString *phoneString = [NSString stringWithFormat:@"%d",phone];
     self.phone.text=phoneString;
     self.username.text= [user username];
     // Do any additional setup after loading the view, typically from a nib.
