@@ -72,8 +72,8 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-  
-        return query;
+    
+    return query;
 }
 
 
@@ -92,7 +92,7 @@
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"picture"];
     PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-  //  thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    //  thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
     thumbnailImageView.file = thumbnail;
     [thumbnailImageView loadInBackground];
     
@@ -100,12 +100,12 @@
     nameLabel.text = [object objectForKey:@"name"];
     
     UILabel *description = (UILabel*) [cell viewWithTag:102];
-       NSString *desc =[object objectForKey:@"description"];
+    NSString *desc =[object objectForKey:@"description"];
     description.text = desc;
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
-    int price = [object objectForKey:@"price"];
-   
-    NSString *strFromInt = [NSString stringWithFormat:@"%d",price];
+    long  price = [[object objectForKey:@"price"] longValue];
+    
+    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
     NSString *varyingString1 = @"$";
     NSString *varyingString2 = strFromInt;
     NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
@@ -113,7 +113,7 @@
     
     UILabel *brandLabel = (UILabel*) [cell viewWithTag:105];
     brandLabel.text = [object objectForKey:@"Marca"];
-
+    
     
     
     return cell;
@@ -136,8 +136,9 @@
         Product *product = [[Product alloc] initWithClassName:@"Product"];
         product.name = [object objectForKey:@"name"];
         product.picture = [object objectForKey:@"picture"];
-        product.price = [object objectForKey:@"price"];
-        product.description = [object objectForKey:@"Description"];
+        product.price = [[object objectForKey:@"price"] longValue];
+        NSString  * desc =[object objectForKey:@"description"];
+        product.description =desc;
         product.brand = [object objectForKey:@"Marca"];
         destViewController.product = product;
         

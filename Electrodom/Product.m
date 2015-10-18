@@ -17,14 +17,13 @@
 */
 
 @dynamic name;
-@dynamic description;
+@dynamic description ;
 @dynamic picture;
 @dynamic brand;
 @dynamic price;
 @dynamic objectId;
 @dynamic userId;
 @dynamic quantity;
-
 
 + (NSString *)parseClassName {
     return @"Product";

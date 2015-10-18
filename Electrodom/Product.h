@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *name; // name of product
 @property (nonatomic, strong) NSString *description; //product description
 @property (nonatomic, strong) PFFile *picture; // image of recipe
-@property (nonatomic) int  price;
+@property (nonatomic) long  price;
 @property (nonatomic, strong) NSString *brand;
 @property (nonatomic, strong) NSString *objectId;
 @property (nonatomic, strong) NSString *userId;

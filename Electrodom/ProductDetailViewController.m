@@ -35,7 +35,7 @@
     leftButton.tintColor = [UIColor blueColor];
     leftButton.autoresizesSubviews = YES;
     leftButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-   [leftButton addTarget:self action:@selector(goToCart:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton addTarget:self action:@selector(goToCart:) forControlEvents:UIControlEventTouchUpInside];
     [leftButtonView addSubview:leftButton];
     
     UIBarButtonItem* leftBarButton = [[UIBarButtonItem alloc]initWithCustomView:leftButtonView];
@@ -46,26 +46,27 @@
 - (void)viewDidLoad {
     
     [self createTopBar];
-   NSString *test = self.product.picture.url;
-  UIImage* myImage =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:test]]];
+    NSString *test = self.product.picture.url;
     
-   [image setImage:myImage];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
+        UIImage* myImage =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:test]]];
+        
+        
+        dispatch_sync(  dispatch_get_main_queue(), ^(void) {
+            [image setImage:myImage];        });
+    });
     
     name.text = product.name;
+    product_description.text = [product objectForKey:@"description"];
+    long price  = product.price;
     
     
+    NSString *strFromInt = [[NSNumber numberWithLong:product.price] stringValue];
     
-    
-    
-   product_description.text = self.product.description;
-    
-    
-    int price = product.price;
-    NSString *strFromInt = [NSString stringWithFormat:@"%d",price];
     NSString *str = [NSString stringWithFormat: @"%@ %@", @"$", strFromInt];
     product_price.text = str;
     product_brand.text = self.product.brand;
-    
     
     
     [super viewDidLoad];
