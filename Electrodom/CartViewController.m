@@ -21,7 +21,6 @@
 
 
 
-
 - (id)initWithCoder:(NSCoder *)aCoder
 {
     self = [super initWithCoder:aCoder];
@@ -66,6 +65,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
     [query fromLocalDatastore];
     return query;
 }
@@ -74,7 +74,7 @@
 
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object.
-- (ProductViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
+- (ProductViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(Product *)product
 {
     static NSString *simpleTableIdentifier = @"ProductCell";
     
@@ -82,37 +82,21 @@
     if (cell == nil) {
         cell = [[ProductViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
-    Product *product = [[Product alloc] initWithClassName:@"Product"];
-    product.name = [object objectForKey:@"name"];
-    product.picture = [object objectForKey:@"picture"];
-    product.price = [object objectForKey:@"price"];
-    product.description = [object objectForKey:@"description"];
-    product.brand = [object objectForKey:@"Marca"];
-    
-    
- 
-    
-    
-    cell.product = product;
-    // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"picture"];
+           // Configure the cell
+    PFFile *thumbnail = [product picture];
     PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
     //  thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
     thumbnailImageView.file = thumbnail;
     [thumbnailImageView loadInBackground];
-    cell.product_name.text = product.name;
-    cell.product_brand.text = product.brand;
-    cell.quantity.text = [NSString stringWithFormat:@"%d",product.quantity];
-    
-    
+    cell.product = product;
+    cell.product_name.text = [product name];
+    cell.product_brand.text = [product brand];
+    int quantiy = product.quantity;
+    cell.quantity.text = [NSString stringWithFormat:@"%d",quantiy];
     UILabel *prepTimeLabel = cell.total_price;
-    long  price = [[object objectForKey:@"price"] longValue];
-    NSString *strFromInt = [NSString stringWithFormat:@"%d",price];
-    
-    
+    NSString *strFromInt = [[NSNumber numberWithLong:(product.price * quantiy)] stringValue];
     prepTimeLabel.text = strFromInt ;
-    
+    [cell.stepper setValue:quantiy];
     return cell;
 }
 
@@ -129,9 +113,17 @@
     NSNumber *myDoubleNumber = [NSNumber numberWithDouble:value];
     cell.quantity.text=[myDoubleNumber stringValue];
     Product *product = cell.product;
+    product.quantity+=1;
+    [product pin
+     ];
     long price = product.price;
     cell.total_price.text = [[NSNumber numberWithDouble:price* value] stringValue];
   }
+-(void)calculateAmounts
+{
+    
+    
+}
 
 - (IBAction)deleteItem:(id)sender {
     [self loadObjects];

@@ -30,4 +30,7 @@
     return @"Product";
 }
 
++ (void)load {
+    [self registerSubclass];
+}
 @end

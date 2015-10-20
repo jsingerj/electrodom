@@ -28,6 +28,8 @@
 		C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */; };
 		C109E7301BD2DC68000981F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C109E72F1BD2DC68000981F2 /* Foundation.framework */; };
 		C109E7321BD2DC78000981F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C109E7311BD2DC78000981F2 /* UIKit.framework */; };
+		C17D70BA1BD449B500ABE01E /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = C17D70B91BD449B500ABE01E /* Address.m */; };
+		C17D70BD1BD4557900ABE01E /* ProductOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = C17D70BC1BD4557900ABE01E /* ProductOrder.m */; };
 		C1ECDBD41BB7504000CC2A9A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC51BB74F9F00CC2A9A /* Bolts.framework */; };
 		C1ECDBD51BB7504000CC2A9A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC61BB74F9F00CC2A9A /* Parse.framework */; };
 		C1ECDBD61BB7504000CC2A9A /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ECDBC71BB74F9F00CC2A9A /* ParseCrashReporting.framework */; };
@@ -103,6 +105,10 @@
 		C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SlideOutMenuFiles/SWRevealViewController.m; sourceTree = "<group>"; };
 		C109E72F1BD2DC68000981F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C109E7311BD2DC78000981F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C17D70B81BD449B500ABE01E /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		C17D70B91BD449B500ABE01E /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		C17D70BB1BD4557900ABE01E /* ProductOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductOrder.h; sourceTree = "<group>"; };
+		C17D70BC1BD4557900ABE01E /* ProductOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductOrder.m; sourceTree = "<group>"; };
 		C1ECDBC51BB74F9F00CC2A9A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Electrodom/parse-library-1.8.5/Bolts.framework"; sourceTree = "<group>"; };
 		C1ECDBC61BB74F9F00CC2A9A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Electrodom/parse-library-1.8.5/Parse.framework"; sourceTree = "<group>"; };
 		C1ECDBC71BB74F9F00CC2A9A /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "Electrodom/parse-library-1.8.5/ParseCrashReporting.framework"; sourceTree = "<group>"; };
@@ -190,6 +196,10 @@
 				89CF06AA1BC1BFCB001DB09B /* Product.m */,
 				89CF06C41BCDF02C001DB09B /* Order.h */,
 				89CF06C51BCDF02C001DB09B /* Order.m */,
+				C17D70B81BD449B500ABE01E /* Address.h */,
+				C17D70B91BD449B500ABE01E /* Address.m */,
+				C17D70BB1BD4557900ABE01E /* ProductOrder.h */,
+				C17D70BC1BD4557900ABE01E /* ProductOrder.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -442,6 +452,7 @@
 				89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */,
 				89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */,
 				C1FFDEFE1BB739EC0087DC68 /* GlobalElectrodom.m in Sources */,
+				C17D70BD1BD4557900ABE01E /* ProductOrder.m in Sources */,
 				C1F8E1231BB7287100484FBA /* ViewController.m in Sources */,
 				C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */,
 				89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */,
@@ -453,6 +464,7 @@
 				89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */,
 				C1F8E11A1BB7287100484FBA /* main.m in Sources */,
 				89CF06B81BC70832001DB09B /* CartViewController.m in Sources */,
+				C17D70BA1BD449B500ABE01E /* Address.m in Sources */,
 				C1FFDF021BB73FFC0087DC68 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
