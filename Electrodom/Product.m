@@ -3,10 +3,11 @@
 //  Electrodom
 //
 //  Created by Juan Cambón on 4/10/15.
-//  Copyright © 2015 Jacobo Singer. All rights reserved.
+//  Copyright © 2015 Juan Cambón. All rights reserved.
 //
 
 #import "Product.h"
+//#import "Category.h"
 
 @implementation Product
 
@@ -24,7 +25,7 @@
 @dynamic objectId;
 @dynamic userId;
 @dynamic quantity;
-@dynamic categoryId;
+@dynamic promotion;
 
 + (NSString *)parseClassName {
     return @"Product";

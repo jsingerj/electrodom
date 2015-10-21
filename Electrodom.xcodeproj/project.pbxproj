@@ -23,6 +23,10 @@
 		89CF06D21BD030FC001DB09B /* nfc1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06D11BD030FC001DB09B /* nfc1.png */; };
 		89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D41BD28537001DB09B /* OrderViewController.m */; };
 		89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */; };
+		89CF06F11BD6A804001DB09B /* NFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06F01BD6A804001DB09B /* NFCViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06F31BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06F21BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png */; settings = {ASSET_TAGS = (); }; };
+		89CF06F61BD6D28A001DB09B /* Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06F51BD6D28A001DB09B /* Promotion.m */; settings = {ASSET_TAGS = (); }; };
+		89CF06FC1BD6DB6E001DB09B /* OffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06FB1BD6DB6E001DB09B /* OffersViewController.m */; settings = {ASSET_TAGS = (); }; };
 		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; };
 		C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10793E91BD2D2700024A633 /* NavigationViewController.m */; };
 		C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */; };
@@ -97,6 +101,13 @@
 		89CF06D41BD28537001DB09B /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
 		89CF06D61BD2A5F2001DB09B /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDownPicker.h; sourceTree = "<group>"; };
 		89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDownPicker.m; sourceTree = "<group>"; };
+		89CF06EF1BD6A804001DB09B /* NFCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFCViewController.h; sourceTree = "<group>"; };
+		89CF06F01BD6A804001DB09B /* NFCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFCViewController.m; sourceTree = "<group>"; };
+		89CF06F21BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Captura de pantalla 2015-10-20 a las 13.52.36.png"; sourceTree = "<group>"; };
+		89CF06F41BD6D28A001DB09B /* Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promotion.h; sourceTree = "<group>"; };
+		89CF06F51BD6D28A001DB09B /* Promotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Promotion.m; sourceTree = "<group>"; };
+		89CF06FA1BD6DB6E001DB09B /* OffersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OffersViewController.h; sourceTree = "<group>"; };
+		89CF06FB1BD6DB6E001DB09B /* OffersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffersViewController.m; sourceTree = "<group>"; };
 		89FB77D21BB8A8670043EF4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		89FB77D31BB8A8670043EF4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		C10793E81BD2D2700024A633 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
@@ -200,6 +211,8 @@
 				C17D70B91BD449B500ABE01E /* Address.m */,
 				C17D70BB1BD4557900ABE01E /* ProductOrder.h */,
 				C17D70BC1BD4557900ABE01E /* ProductOrder.m */,
+				89CF06F41BD6D28A001DB09B /* Promotion.h */,
+				89CF06F51BD6D28A001DB09B /* Promotion.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -281,6 +294,7 @@
 		C1F8E1171BB7287100484FBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89CF06F21BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png */,
 				89CF06D11BD030FC001DB09B /* nfc1.png */,
 				89CF06CF1BD02B46001DB09B /* shopping100.png */,
 				89CF06CD1BD0275B001DB09B /* shopping122.png */,
@@ -336,6 +350,10 @@
 				89CF06D41BD28537001DB09B /* OrderViewController.m */,
 				89CF06D61BD2A5F2001DB09B /* UIDownPicker.h */,
 				89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */,
+				89CF06EF1BD6A804001DB09B /* NFCViewController.h */,
+				89CF06F01BD6A804001DB09B /* NFCViewController.m */,
+				89CF06FA1BD6DB6E001DB09B /* OffersViewController.h */,
+				89CF06FB1BD6DB6E001DB09B /* OffersViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -420,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CF06F31BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png in Resources */,
 				89CF06CC1BD015E5001DB09B /* garbage12.png in Resources */,
 				89CF06D21BD030FC001DB09B /* nfc1.png in Resources */,
 				89CF06C31BCDEAC9001DB09B /* cart.png in Resources */,
@@ -452,18 +471,21 @@
 				89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */,
 				89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */,
 				C1FFDEFE1BB739EC0087DC68 /* GlobalElectrodom.m in Sources */,
+				89CF06FC1BD6DB6E001DB09B /* OffersViewController.m in Sources */,
 				C17D70BD1BD4557900ABE01E /* ProductOrder.m in Sources */,
 				C1F8E1231BB7287100484FBA /* ViewController.m in Sources */,
 				C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */,
 				89CF06B11BC1D6B4001DB09B /* ProductDetailViewController.m in Sources */,
 				89CF06C61BCDF02C001DB09B /* Order.m in Sources */,
 				89CF06AE1BC1C5D3001DB09B /* ProductViewController.m in Sources */,
+				89CF06F11BD6A804001DB09B /* NFCViewController.m in Sources */,
 				89CF06CA1BCDFF30001DB09B /* ProductViewCell.m in Sources */,
 				89CF06A81BC1B991001DB09B /* MessageDictionary.m in Sources */,
 				89CF06A11BC089A4001DB09B /* EditViewController.m in Sources */,
 				89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */,
 				C1F8E11A1BB7287100484FBA /* main.m in Sources */,
 				89CF06B81BC70832001DB09B /* CartViewController.m in Sources */,
+				89CF06F61BD6D28A001DB09B /* Promotion.m in Sources */,
 				C17D70BA1BD449B500ABE01E /* Address.m in Sources */,
 				C1FFDF021BB73FFC0087DC68 /* HomeViewController.m in Sources */,
 			);

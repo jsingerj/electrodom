@@ -3,16 +3,16 @@
 //  Electrodom
 //
 //  Created by Juan Cambón on 4/10/15.
-//  Copyright © 2015 Jacobo Singer. All rights reserved.
+//  Copyright © 2015 Juan Cambón. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+
+#import "Promotion.h"
 @interface Product : PFObject<PFSubclassing>
 
-//agregar el id
-//agregar el resto del os datos de la tabla
-//si no hay orden, relacioanrlo a un usuario
+
 + (NSString *)parseClassName;
 @property (nonatomic, strong) NSString *name; // name of product
 @property (nonatomic, strong) NSString *description; //product description
@@ -22,7 +22,8 @@
 @property (nonatomic, strong) NSString *objectId;
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic) int  quantity;
-@property (nonatomic, strong) NSString *categoryId;
+@property (nonatomic, strong) Promotion *promotion;
+//@property (nonatomic, strong) Category *category;
 
 
 

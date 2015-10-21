@@ -1,25 +1,18 @@
 //
-//  ProductViewController.m
+//  OffersViewController.m
 //  Electrodom
 //
-//  Created by Juan Cambón on 4/10/15.
-//  Copyright © 2015 Juan Cambón. All rights reserved.
+//  Created by Juan Cambón on 20/10/15.
+//  Copyright © 2015 Jacobo Singer. All rights reserved.
 //
 
-#import "ProductViewController.h"
-#import "ProductDetailViewController.h"
+#import "OffersViewController.h"
 #import "Product.h"
+#import "Promotion.h"
 #import "SWRevealViewController.h"
-@interface ProductViewController ()
+#import "ProductDetailViewController.h"
 
-
-@end
-
-@implementation ProductViewController {
-    
-}
-
-
+@implementation OffersViewController{}
 
 - (id)initWithCoder:(NSCoder *)aCoder
 {
@@ -50,10 +43,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _barButton.target = self.revealViewController;
-    _barButton.action = @selector(revealToggle:);
+    // _barButton.target = self.revealViewController;
+    // _barButton.action = @selector(revealToggle:);
     
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+   // [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
 }
 
@@ -89,57 +82,58 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    
-    
-    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
-    long  price = [[object objectForKey:@"price"] longValue];
-    
-    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
-    NSString *varyingString1 = @"$";
-    NSString *varyingString2 = strFromInt;
-    NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
-    prepTimeLabel.text = str ;
-
     Promotion * p = [object objectForKey:@"promotionID"];
-
     
     if(p!=nil)
     {
-        UILabel *offerLabel = (UILabel*) [cell viewWithTag:120];
-        offerLabel.text = @"Oferta";
-        PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
-        Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:p.objectId] getFirstObject];
-        long disc = [[prom objectForKey:@"Discount"]longValue];
-        float x = 1 - ((float)disc/100);
-        long finalPrice = price * x ;
-        NSString *strFromInt = [[NSNumber numberWithLong:finalPrice] stringValue];
-        NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, strFromInt];
-        prepTimeLabel.text = str ;
-        [prepTimeLabel setFont:[UIFont boldSystemFontOfSize:17]];
+        // Configure the cell
+        PFFile *thumbnail = [object objectForKey:@"picture"];
+        PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
+        thumbnailImageView.file = thumbnail;
+        [thumbnailImageView loadInBackground];
         
-     
-    }
+        UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+        nameLabel.text = [object objectForKey:@"name"];
+        
+        
+        // UILabel *description = (UILabel*) [cell viewWithTag:102];
+        //NSString *desc =[object objectForKey:@"description"];
+        //description.text = desc;
+        NSString *idProm = p.objectId;
+        PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
+        Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
+        long discount = [[prom objectForKey:@"Discount"]longValue];
 
-    
-    // Configure the cell
-    PFFile *thumbnail = [object objectForKey:@"picture"];
-    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
-    //  thumbnailImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
-    thumbnailImageView.file = thumbnail;
-    [thumbnailImageView loadInBackground];
-    
-    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"name"];
-    
-    UILabel *description = (UILabel*) [cell viewWithTag:102];
-    NSString *desc =[object objectForKey:@"description"];
-    description.text = desc;
-    
-    UILabel *brandLabel = (UILabel*) [cell viewWithTag:105];
-    brandLabel.text = [object objectForKey:@"Marca"];
-    
-    
-    
+        
+        
+        
+        UILabel *discountLabel = (UILabel*) [cell viewWithTag:104];
+        NSString *dis = [[NSNumber numberWithLong:discount] stringValue];
+        NSString *vary = @"%";
+        discountLabel.text = [NSString stringWithFormat: @"%@ %@", vary, dis];
+        
+        
+        UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
+        long  price = [[object objectForKey:@"price"] longValue];
+        NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
+        NSString *coin = @"$";
+        NSString *str = [NSString stringWithFormat: @"%@ %@", coin, strFromInt];
+        prepTimeLabel.text = str ;
+        
+        
+        UILabel *fPrice = (UILabel*) [cell viewWithTag:106];
+        long finalPrice = price * (1 - (discount/100));
+        NSString *realP = [[NSNumber numberWithLong:finalPrice] stringValue];
+        NSString *total = [NSString stringWithFormat: @"%@ %@", coin, realP];
+        fPrice.text = total ;
+        
+        
+        
+        UILabel *brandLabel = (UILabel*) [cell viewWithTag:105];
+        brandLabel.text = [object objectForKey:@"Marca"];
+        return cell;
+        
+    }
     return cell;
 }
 
@@ -164,9 +158,8 @@
         NSString  * desc =[object objectForKey:@"description"];
         product.description =desc;
         product.brand = [object objectForKey:@"Marca"];
-        product.promotion = [object objectForKey:@"promotionID"];
-        
-       // product.categoryId = [object objectForKey:@"categoryId"];
+        product.promotion = [object objectForKey:@"promotion"];
+        // product.categoryId = [object objectForKey:@"categoryId"];
         destViewController.product = product;
         
     }
@@ -174,5 +167,4 @@
 
 
 @end
-
 

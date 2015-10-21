@@ -29,8 +29,8 @@
     self.name.text =[user objectForKey:@"name"];
     self.ID.text =[user objectForKey:@"document_number"];
     long  phone = [[user objectForKey:@"phone"] longValue];
-     NSString *phoneString = [NSString stringWithFormat:@"%d",phone];
-    self.phone.text=phoneString;
+    NSString *strFromInt = [[NSNumber numberWithLong:phone] stringValue];
+    self.phone.text=strFromInt;
     self.username.text= [user username];
     // Do any additional setup after loading the view, typically from a nib.
     _barButton.target = self.revealViewController;

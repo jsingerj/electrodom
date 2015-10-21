@@ -2,8 +2,8 @@
 //  ProductOrder.h
 //  Electrodom
 //
-//  Created by Jacobo Singer on 18/10/15.
-//  Copyright (c) 2015 Jacobo Singer. All rights reserved.
+//  Created by Juan Cambón on 18/10/15.
+//  Copyright (c) 2015 Juan Cambón. All rights reserved.
 //
 
 #import <Parse/Parse.h>

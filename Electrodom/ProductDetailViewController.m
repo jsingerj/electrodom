@@ -13,14 +13,14 @@
 @synthesize name;
 @synthesize image;
 @synthesize product;
-@synthesize addProduct;
 @synthesize description;
 @synthesize product_brand;
 @synthesize product_price;
 @synthesize category;
+@synthesize promotion_Price;
+@synthesize discount;
+@synthesize line;
 
-
-@synthesize cart_button;
 
 
 -(void)createTopBar {
@@ -60,14 +60,45 @@
     
     name.text = product.name;
     product_description.text = [product objectForKey:@"description"];
-    long price  = product.price;
     
+    long price  = product.price;
     
     NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
     
     NSString *str = [NSString stringWithFormat: @"%@ %@", @"$", strFromInt];
     product_price.text = str;
     product_brand.text = self.product.brand;
+    
+    if(product.promotion!=nil){
+        NSString *idProm = product.promotion.objectId;
+        PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
+        Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
+        long disc = [[prom objectForKey:@"Discount"]longValue];
+        
+        
+        float x = 1 - ((float)disc/100);
+        long finalPrice = price * x ;
+        NSString *realP = [[NSNumber numberWithLong:finalPrice] stringValue];
+        NSString *coin = @"$";
+        NSString *total = [NSString stringWithFormat: @"%@ %@", coin, realP];
+        promotion_Price.text = total ;
+        NSString *d = [[NSNumber numberWithLong:disc] stringValue];;
+        NSString *finaldisc = [NSString stringWithFormat: @"%@ %@", @"%", d];
+        discount.text = finaldisc;
+        
+    }
+    
+    else
+    {
+        line.text=@"";
+        promotion_Price.text=@"";
+        discount.text = @"";
+        
+    }
+    
+
+    
+    
   //  category.text = [product objectForKey:@"CategoryId"];
     
     [super viewDidLoad];
@@ -85,7 +116,9 @@
 
 
 - (IBAction)addProductToCart:(id)sender {
+    self.product.quantity = 1;
     [self.product pin];
+    
     
     
    // [leftButton setTitle:@"0" forState:UIControlStateNormal]; actualizar el el dato de la cantidad de productos

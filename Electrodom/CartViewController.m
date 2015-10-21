@@ -94,8 +94,10 @@
     int quantiy = product.quantity;
     cell.quantity.text = [NSString stringWithFormat:@"%d",quantiy];
     UILabel *prepTimeLabel = cell.total_price;
-    NSString *strFromInt = [[NSNumber numberWithLong:(product.price * quantiy)] stringValue];
-    prepTimeLabel.text = strFromInt ;
+    NSString *varyingString1 = @"$";
+    NSString *varyingString2 =[[NSNumber numberWithLong:(product.price * quantiy)] stringValue];
+     NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
+    prepTimeLabel.text=str;
     [cell.stepper setValue:quantiy];
     return cell;
 }
@@ -109,16 +111,21 @@
 - (IBAction)valueChanged:(UIStepper *)sender {
     double value = [sender value];
     ProductViewCell* cell =  (ProductViewCell*)[[sender superview]superview];
-   
     NSNumber *myDoubleNumber = [NSNumber numberWithDouble:value];
     cell.quantity.text=[myDoubleNumber stringValue];
+    
     Product *product = cell.product;
     product.quantity+=1;
-    [product pin
-     ];
+    [product pin];
     long price = product.price;
-    cell.total_price.text = [[NSNumber numberWithDouble:price* value] stringValue];
+    
+    NSString *varyingString1 = @"$";
+    NSString *varyingString2 = [[NSNumber numberWithDouble:price* value] stringValue];;
+    NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
+    cell.total_price.text = str;
   }
+
+
 -(void)calculateAmounts
 {
     
