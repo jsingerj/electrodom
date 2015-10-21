@@ -35,13 +35,19 @@
         // The number of objects to show per page
         self.objectsPerPage = 10;
     }
+    
     return self;
 }
 
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+       [super viewDidLoad];
+    _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
+    UITableView * table = self.tableView;
+    [self.tableView addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
     // Do any additional setup after loading the view, typically from a nib.
     // _barButton.target = self.revealViewController;
     // _barButton.action = @selector(revealToggle:);
@@ -65,7 +71,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
+    [query whereKeyExists:@"promotionID"];
     return query;
 }
 
@@ -75,7 +81,7 @@
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    static NSString *simpleTableIdentifier = @"ProductCell";
+    static NSString *simpleTableIdentifier = @"ProductOfferCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
@@ -84,8 +90,7 @@
     
     Promotion * p = [object objectForKey:@"promotionID"];
     
-    if(p!=nil)
-    {
+  
         // Configure the cell
         PFFile *thumbnail = [object objectForKey:@"picture"];
         PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:100];
@@ -132,9 +137,7 @@
         UILabel *brandLabel = (UILabel*) [cell viewWithTag:105];
         brandLabel.text = [object objectForKey:@"Marca"];
         return cell;
-        
-    }
-    return cell;
+    
 }
 
 - (void) objectsDidLoad:(NSError *)error

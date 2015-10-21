@@ -115,7 +115,7 @@
     cell.quantity.text=[myDoubleNumber stringValue];
     
     Product *product = cell.product;
-    product.quantity+=1;
+    product.quantity=value;
     [product pin];
     long price = product.price;
     
