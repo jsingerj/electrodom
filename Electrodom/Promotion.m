@@ -15,5 +15,6 @@
 }
 @dynamic discount;
 @dynamic objectId;
+@dynamic date;
 
 @end
