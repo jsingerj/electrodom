@@ -9,6 +9,8 @@
 #import "CartViewController.h"
 #import "ProductViewCell.h"
 #import "Product.h"
+
+
 @interface CartViewController ()
 
 
@@ -17,6 +19,8 @@
 
 @implementation CartViewController
 
+@synthesize total_amount;
+@synthesize amount;
 
 
 
@@ -94,11 +98,25 @@
     int quantiy = product.quantity;
     cell.quantity.text = [NSString stringWithFormat:@"%d",quantiy];
     UILabel *prepTimeLabel = cell.total_price;
+    long price = product.price;
+    if(product.promotion!=nil)
+    {
+        NSString *idProm = product.promotion.objectId;
+        PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
+        Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
+        long disc = [[prom objectForKey:@"Discount"]longValue];
+        float x = 1 - ((float)disc/100);
+        price = price * x ;
+    }
+    
     NSString *varyingString1 = @"$";
-    NSString *varyingString2 =[[NSNumber numberWithLong:(product.price * quantiy)] stringValue];
+    NSString *varyingString2 =[[NSNumber numberWithLong:(price * quantiy)] stringValue];
      NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
     prepTimeLabel.text=str;
     [cell.stepper setValue:quantiy];
+    amount= amount + product.quantity * price;
+    NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
+    total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
     return cell;
 }
 
@@ -115,14 +133,31 @@
     cell.quantity.text=[myDoubleNumber stringValue];
     
     Product *product = cell.product;
-    product.quantity=value;
-    [product pin];
+   
     long price = product.price;
     
+    if(product.promotion!=nil)
+    {
+        NSString *idProm = product.promotion.objectId;
+        PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
+        Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
+        long disc = [[prom objectForKey:@"Discount"]longValue];
+        float x = 1 - ((float)disc/100);
+        price = price * x ;
+    }
+
+    long priceQ = price * value;
+    
     NSString *varyingString1 = @"$";
-    NSString *varyingString2 = [[NSNumber numberWithDouble:price* value] stringValue];;
+    NSString *varyingString2 = [[NSNumber numberWithDouble:priceQ] stringValue];;
     NSString *str = [NSString stringWithFormat: @"%@ %@", varyingString1, varyingString2];
     cell.total_price.text = str;
+    amount = amount -  (price * product.quantity  )  + priceQ;
+    NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
+    total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
+    product.quantity=value;
+    [product pin];
+    
   }
 
 
@@ -133,11 +168,19 @@
 }
 
 - (IBAction)deleteItem:(id)sender {
+   /* ProductViewCell* cell =  (ProductViewCell*)[[sender superview]superview];
+    Product *product = cell.product;
+    amount = amount - (product.quantity * product.price);*/
+    //no habria que hacer eso porque al recargar los objetos se hace la cuenta bien
     [self loadObjects];
+    
     
 }
 - (IBAction)delete_Cart:(id)sender {
     [Product unpinAllObjects];
+    amount = 0;
+    NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
+    total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
     [self loadObjects];
     
 

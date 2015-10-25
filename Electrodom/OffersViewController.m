@@ -3,7 +3,7 @@
 //  Electrodom
 //
 //  Created by Juan Cambón on 20/10/15.
-//  Copyright © 2015 Jacobo Singer. All rights reserved.
+//  Copyright © 2015 Juan Cambón. All rights reserved.
 //
 
 #import "OffersViewController.h"
@@ -52,7 +52,6 @@
     // _barButton.target = self.revealViewController;
     // _barButton.action = @selector(revealToggle:);
     
-   // [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
 }
 
@@ -88,7 +87,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    Promotion * p = [object objectForKey:@"promotionID"];
+        Promotion * p = [object objectForKey:@"promotionID"];
     
   
         // Configure the cell
@@ -99,8 +98,10 @@
         
         UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
         nameLabel.text = [object objectForKey:@"name"];
-        
-        
+    
+    
+    
+    
         // UILabel *description = (UILabel*) [cell viewWithTag:102];
         //NSString *desc =[object objectForKey:@"description"];
         //description.text = desc;
@@ -108,8 +109,31 @@
         PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
         Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
         long discount = [[prom objectForKey:@"Discount"]longValue];
-
-        
+    
+    
+    
+        UILabel *dateLabel = (UILabel*) [cell viewWithTag:109];
+        NSDate *date = [prom objectForKey:@"expiry_date"];
+      //  NSString *datexp = [NSString stringWithFormat:@"%@", date];
+   
+   // NSDate *inputDate = [NSDate date];  //assign the value selected from date picker
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+       unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+       NSDateComponents* componentObj = [calendar components:unitFlags fromDate:date];
+       NSInteger day = componentObj.day;
+       NSInteger month = componentObj.month;
+       NSInteger year = componentObj.year;
+    
+       NSString *auxD = [[NSNumber numberWithLong:day] stringValue];
+       NSString *auxM = [[NSNumber numberWithLong:month] stringValue];
+       NSString *auxY = [[NSNumber numberWithLong:year] stringValue];
+       auxY = [NSString stringWithFormat: @"%@ %@", @"/", auxY];
+       auxM = [NSString stringWithFormat: @"%@ %@", @"/", auxM];
+        NSString *expDate = [NSString stringWithFormat: @"%@%@%@%@",@"Válido hasta ",auxD, auxM, auxY];
+       dateLabel.text = expDate;
+    
+    
         
         
         UILabel *discountLabel = (UILabel*) [cell viewWithTag:104];

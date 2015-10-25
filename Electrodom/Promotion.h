@@ -13,7 +13,7 @@
 + (NSString *)parseClassName;
 @property (nonatomic) long discount;
 @property (nonatomic, strong) NSString *objectId;
-
+@property (nonatomic, strong) NSDate *date;
 
 
 @end

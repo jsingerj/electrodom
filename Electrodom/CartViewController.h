@@ -14,5 +14,8 @@
 
 @property (nonatomic, strong) Product *product;
 @property (weak, nonatomic) IBOutlet UIButton *gabragge_button;
+@property (weak, nonatomic) IBOutlet UILabel *total_amount;
+@property (nonatomic) long amount;
+
 
 @end
