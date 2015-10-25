@@ -7,13 +7,9 @@
 //
 
 #import "ViewController.h"
+#import <ParseUI/ParseUI.h>
 
-@interface CardsViewController : ViewController
-@property (weak, nonatomic) IBOutlet UILabel *card_holder;
-@property (weak, nonatomic) IBOutlet UILabel *card_number;
+@interface CardsViewController : PFQueryTableViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *card_cvv;
-
-@property (weak, nonatomic) IBOutlet UIImageView *bank_image;
 
 @end

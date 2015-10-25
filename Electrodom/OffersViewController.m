@@ -102,9 +102,6 @@
     
     
     
-        // UILabel *description = (UILabel*) [cell viewWithTag:102];
-        //NSString *desc =[object objectForKey:@"description"];
-        //description.text = desc;
         NSString *idProm = p.objectId;
         PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
         Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
@@ -114,9 +111,6 @@
     
         UILabel *dateLabel = (UILabel*) [cell viewWithTag:109];
         NSDate *date = [prom objectForKey:@"expiry_date"];
-      //  NSString *datexp = [NSString stringWithFormat:@"%@", date];
-   
-   // NSDate *inputDate = [NSDate date];  //assign the value selected from date picker
         NSCalendar* calendar = [NSCalendar currentCalendar];
     
        unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;

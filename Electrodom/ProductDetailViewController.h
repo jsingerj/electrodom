@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *product_description;
 @property (weak, nonatomic) IBOutlet UILabel *product_brand;
 
-@property (weak, nonatomic) IBOutlet UILabel *category;
 @property (weak, nonatomic) IBOutlet UILabel *promotion_Price;
 
 @property (weak, nonatomic) IBOutlet UILabel *discount;

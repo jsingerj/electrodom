@@ -16,7 +16,7 @@
 @synthesize description;
 @synthesize product_brand;
 @synthesize product_price;
-@synthesize category;
+//@synthesize category;
 @synthesize promotion_Price;
 @synthesize discount;
 @synthesize line;
@@ -96,6 +96,11 @@
         
     }
     
+    
+ //   PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+  //  [query whereKey:@"CategoryId" equalTo:product.categorie];
+    
+  
 
     
     
@@ -129,6 +134,31 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
+    
+    static NSString *simpleTableIdentifier = @"ProductCellCollection";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+    
+    
+    PFFile *thumbnail = [object objectForKey:@"picture"];
+    UIImageView* cardImage = (UIImageView*)[cell viewWithTag:100];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
+        UIImage* myImage =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:thumbnail.url]]];
+        
+        
+        dispatch_sync(  dispatch_get_main_queue(), ^(void) {
+            [cardImage setImage:myImage];        });
+    });
+    
+    
+    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+    nameLabel.text = [object objectForKey:@"name"];
+
+    
+    
+     return cell;
 }
 
 
