@@ -166,15 +166,11 @@
         product.brand = [object objectForKey:@"Marca"];
         product.promotion = [object objectForKey:@"promotionID"];
         
-        
-        product.categorie = [object objectForKey:@"CategoryId"];
+       // product.categoryId = [object objectForKey:@"categoryId"];
         destViewController.product = product;
         
     }
 }
-
-
-
 
 
 @end
