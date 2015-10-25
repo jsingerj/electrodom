@@ -121,7 +121,9 @@
         }
     }
 ];
-/*FORMA DE TRAER TODAS LAS ORDENES DE UN USUARIO, Y LUEGO EL PRODUCTO DE CADA ORDEN
+    
+     */
+/*FORMA DE TRAER TODAS LAS ORDENES DE UN USUARIO, Y LUEGO EL PRODUCTO DE CADA ORDEN */
     //Traer todas las ordenes de un usuario:
     PFUser * user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"Orders"];
@@ -139,7 +141,7 @@
         
 
     }
-*/
+
 
     
     

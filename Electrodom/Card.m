@@ -22,7 +22,5 @@
 @dynamic card_holder;
 @dynamic user;
 
-+ (void)load {
-    [self registerSubclass];
-}
+
 @end
