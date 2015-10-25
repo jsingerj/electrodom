@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "Address.h"
 #import "Product.h"
-
+#import "Card.h"
 @interface Order : PFObject<PFSubclassing>
 
 
@@ -22,6 +22,8 @@
 
 //@property (nonatomic, strong) PFUser* user;
 @property (nonatomic, strong) Address* address;
+@property (nonatomic, strong) Card* card;
+
 @property (nonatomic, strong) NSMutableArray* productsOrders;
 -(void) addProduct:(Product * )product withQuantity:(int)quantity;
 

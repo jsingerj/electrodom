@@ -23,6 +23,7 @@
 		89CF06D21BD030FC001DB09B /* nfc1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06D11BD030FC001DB09B /* nfc1.png */; };
 		89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D41BD28537001DB09B /* OrderViewController.m */; };
 		89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */; };
+<<<<<<< Updated upstream
 		89CF06F11BD6A804001DB09B /* NFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06F01BD6A804001DB09B /* NFCViewController.m */; settings = {ASSET_TAGS = (); }; };
 		89CF06F31BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06F21BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png */; settings = {ASSET_TAGS = (); }; };
 		89CF06F61BD6D28A001DB09B /* Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06F51BD6D28A001DB09B /* Promotion.m */; settings = {ASSET_TAGS = (); }; };
@@ -32,6 +33,15 @@
 		89CF07081BD98E09001DB09B /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07071BD98E09001DB09B /* CardsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		89CF070B1BD98F31001DB09B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF070A1BD98F31001DB09B /* User.m */; settings = {ASSET_TAGS = (); }; };
 		89CF070E1BDC2BE8001DB09B /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF070D1BDC2BE8001DB09B /* Categorie.m */; settings = {ASSET_TAGS = (); }; };
+=======
+		89CF06F11BD6A804001DB09B /* NFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06F01BD6A804001DB09B /* NFCViewController.m */; };
+		89CF06F31BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CF06F21BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png */; };
+		89CF06F61BD6D28A001DB09B /* Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06F51BD6D28A001DB09B /* Promotion.m */; };
+		89CF06FC1BD6DB6E001DB09B /* OffersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06FB1BD6DB6E001DB09B /* OffersViewController.m */; };
+		89CF06FF1BD98835001DB09B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF06FE1BD98835001DB09B /* Card.m */; };
+		89CF07051BD98929001DB09B /* Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07041BD98929001DB09B /* Bank.m */; };
+		89CF07081BD98E09001DB09B /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07071BD98E09001DB09B /* CardsViewController.m */; };
+>>>>>>> Stashed changes
 		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; };
 		C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10793E91BD2D2700024A633 /* NavigationViewController.m */; };
 		C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */; };
@@ -119,10 +129,13 @@
 		89CF07041BD98929001DB09B /* Bank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bank.m; sourceTree = "<group>"; };
 		89CF07061BD98E09001DB09B /* CardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
 		89CF07071BD98E09001DB09B /* CardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		89CF07091BD98F31001DB09B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		89CF070A1BD98F31001DB09B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		89CF070C1BDC2BE8001DB09B /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categorie.h; sourceTree = "<group>"; };
 		89CF070D1BDC2BE8001DB09B /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categorie.m; sourceTree = "<group>"; };
+=======
+>>>>>>> Stashed changes
 		89FB77D21BB8A8670043EF4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		89FB77D31BB8A8670043EF4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		C10793E81BD2D2700024A633 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
@@ -232,10 +245,13 @@
 				89CF06FE1BD98835001DB09B /* Card.m */,
 				89CF07031BD98929001DB09B /* Bank.h */,
 				89CF07041BD98929001DB09B /* Bank.m */,
+<<<<<<< Updated upstream
 				89CF07091BD98F31001DB09B /* User.h */,
 				89CF070A1BD98F31001DB09B /* User.m */,
 				89CF070C1BDC2BE8001DB09B /* Categorie.h */,
 				89CF070D1BDC2BE8001DB09B /* Categorie.m */,
+=======
+>>>>>>> Stashed changes
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -497,8 +513,11 @@
 				89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */,
 				89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */,
 				C1FFDEFE1BB739EC0087DC68 /* GlobalElectrodom.m in Sources */,
+<<<<<<< Updated upstream
 				89CF070E1BDC2BE8001DB09B /* Categorie.m in Sources */,
 				89CF070B1BD98F31001DB09B /* User.m in Sources */,
+=======
+>>>>>>> Stashed changes
 				89CF06FC1BD6DB6E001DB09B /* OffersViewController.m in Sources */,
 				C17D70BD1BD4557900ABE01E /* ProductOrder.m in Sources */,
 				C1F8E1231BB7287100484FBA /* ViewController.m in Sources */,

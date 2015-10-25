@@ -13,9 +13,12 @@
 @interface CartViewController : PFQueryTableViewController
 
 @property (nonatomic, strong) Product *product;
-@property (weak, nonatomic) IBOutlet UIButton *gabragge_button;
 @property (weak, nonatomic) IBOutlet UILabel *total_amount;
 @property (nonatomic) long amount;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *garbage;
+
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigation;
 
 @end
