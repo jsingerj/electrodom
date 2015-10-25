@@ -44,6 +44,9 @@
     
     
 }
+
+
+
 - (void)viewDidLoad {
     
     [self createTopBar];
@@ -97,15 +100,6 @@
     }
     
     
- //   PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-  //  [query whereKey:@"CategoryId" equalTo:product.categorie];
-    
-  
-
-    
-    
-  //  category.text = [product objectForKey:@"CategoryId"];
-    
     [super viewDidLoad];
     
     
@@ -152,11 +146,14 @@
             [cardImage setImage:myImage];        });
     });
     
-    
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
     nameLabel.text = [object objectForKey:@"name"];
+    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
+    long  price = [[object objectForKey:@"price"] longValue];
+    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
+    NSString *varyingString2 = strFromInt;
+    prepTimeLabel.text = [NSString stringWithFormat: @"%@ %@", @"$", varyingString2]; ;
 
-    
     
      return cell;
 }

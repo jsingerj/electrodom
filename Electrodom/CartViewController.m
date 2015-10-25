@@ -9,8 +9,8 @@
 #import "CartViewController.h"
 #import "ProductViewCell.h"
 #import "Product.h"
-
-
+#import "SWRevealViewController.h"
+#import  "OrderViewController.h"
 @interface CartViewController ()
 
 
@@ -49,6 +49,24 @@
     return self;
 }
 
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    UIBarButtonItem *btnBuy = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buy:)];
+    UIBarButtonItem *btnRefresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithImage:nil style:(UIBarButtonItemStylePlain) target:(self.revealViewController) action:(@selector(revealToggle:))];
+    btnMenu.title=@"Menu";
+    
+    
+    
+    
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBuy, btnRefresh,self.garbage, btnMenu,nil]];
+    
+    
+}
 
 
 
@@ -186,6 +204,24 @@
 
 }
 
+
+- (IBAction)buy:(id)sender {
+    
+    OrderViewController *toViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"OrderViewController"];
+    [self.navigationController pushViewController:toViewController animated:YES ];
+    
+    //  [self presentViewController:toViewController animated:YES completion:NULL];
+}
+
+- (IBAction)refresh:(id)sender {
+    /* ProductViewCell* cell =  (ProductViewCell*)[[sender superview]superview];
+     Product *product = cell.product;
+     amount = amount - (product.quantity * product.price);*/
+    //no habria que hacer eso porque al recargar los objetos se hace la cuenta bien
+    [self loadObjects];
+    
+    
+}
 
 
 
