@@ -89,7 +89,8 @@
                 {
                     NSString *pass = password.text;
                     PFUser *user =    [PFUser currentUser];
-                    NSString *oldPass=[user password];
+                   
+                    NSString *oldPass= [PFUser currentUser][@"password"];
                     //password con contrasena actual de la base
                     if(pass!=oldPass && password.text.length>0)
                     {

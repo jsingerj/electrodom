@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Categorie.h"
 
 #import "Promotion.h"
 @interface Product : PFObject<PFSubclassing>
@@ -23,7 +24,7 @@
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic) int  quantity;
 @property (nonatomic, strong) Promotion *promotion;
-//@property (nonatomic, strong) Category *category;
+@property (nonatomic, strong) Categorie *categorie;
 
 
 
