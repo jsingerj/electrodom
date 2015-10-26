@@ -14,12 +14,11 @@
 
 + (NSString *)parseClassName;
 @property (nonatomic) long discount;
-@property (nonatomic, strong) NSString *objectId;
-@property (nonatomic, strong) NSString *card_holder;
-@property (nonatomic, strong) Bank *bank;
-@property (nonatomic, strong) NSDate *expiryDate;
+@property (nonatomic, strong) NSString *Card_holder;
+@property (nonatomic, strong) Bank *BankId;
+@property (nonatomic, strong) NSDate *Expiry_date;
 @property (nonatomic) long card_number;
 @property (nonatomic) long cvv;
-@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) PFUser *userID;
 
 @end

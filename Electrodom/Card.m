@@ -16,11 +16,11 @@
 }
 @dynamic cvv;
 @dynamic card_number;
-@dynamic expiryDate;
-@dynamic bank;
+@dynamic Expiry_date;
+@dynamic BankId;
 @dynamic objectId;
-@dynamic card_holder;
-@dynamic user;
+@dynamic Card_holder;
+@dynamic userID;
 + (void)load {
     [self registerSubclass];
 }

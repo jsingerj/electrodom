@@ -339,7 +339,7 @@ numberOfRowsInComponent:(NSInteger)component
 -(Card * )getCardForOrder {
     
     Card * card = [[Card alloc]initWithClassName:@"Card"];
-    card.card_holder =self.card_holder_name.text;
+    card.Card_holder =self.card_holder_name.text;
     card.cvv=[self.card_number.text longLongValue];
     
     
@@ -356,14 +356,14 @@ numberOfRowsInComponent:(NSInteger)component
     [comps setMonth:viewExpiryMonth];
     [comps setYear:viewExpiryYear];
     NSDate * expiration = [[NSCalendar currentCalendar] dateFromComponents:comps];
-    card.expiryDate = expiration;
+    card.Expiry_date = expiration;
     
     if(order.card !=nil){
         //check cvv
         if(order.card.cvv !=card.cvv){
             return nil;
         }
-        bool isEqual =isEqual && [card.card_holder isEqualToString:order.card.card_holder] &&
+        bool isEqual =isEqual && [card.Card_holder isEqualToString:order.card.Card_holder] &&
         card.card_number==order.card.card_number && viewExpiryMonth ==[self getExpirationMonth:order.card] &&
         viewExpiryYear== [self getExpirationYear:order.card];
         if(isEqual){
