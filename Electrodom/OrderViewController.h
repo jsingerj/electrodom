@@ -7,13 +7,12 @@
 //
 
 #import "ViewController.h"
-//#import "DownPicker.h"
 #import "Card.h"
 #import "Order.h"
 #import "Address.h"
 #import "ProductOrder.h"
 
-@interface OrderViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate>
+@interface OrderViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
 
 
@@ -21,9 +20,15 @@
 @property (strong, nonatomic) NSArray *countryNames;
 @property (strong, nonatomic) NSArray *products;
 @property (strong, nonatomic) NSArray *cardsAvailable;
+@property (strong, nonatomic) NSArray *banksAvailable;
+
+
+
 @property (strong, nonatomic)  Address *selected_address;
 @property (strong, nonatomic)  Order *order;
 @property (nonatomic)  int total_price;
+@property (weak, nonatomic) IBOutlet UITextView *comments;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 /*RESUME*/
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;

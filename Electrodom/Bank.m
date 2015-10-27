@@ -13,6 +13,10 @@
 + (NSString *)parseClassName {
     return @"Bank";
 }
++ (void)load {
+    [self registerSubclass];
+}
+
 
 @dynamic picture;
 @dynamic name;

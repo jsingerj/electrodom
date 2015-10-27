@@ -7,7 +7,10 @@
 //
 
 #import "OrderViewController.h"
-
+#import "Bank.h"
+#import <ParseUI/ParseUI.h>
+#import "ERP.h"
+#import "ConfirmationViewController.h"
 @implementation OrderViewController
 
 @synthesize totalLabel;
@@ -29,7 +32,7 @@
 @synthesize order;
 @synthesize savedCard;
 @synthesize infoView;
-
+@synthesize comments;
 
 
 
@@ -84,6 +87,15 @@
 
 - (void)viewDidLoad
 {
+    
+    /*Setting delegates */
+    self.collectionView.delegate=self;
+    self.collectionView.dataSource=self;
+    savedAddress.delegate = self;
+    savedCard.delegate=self;
+
+    
+    
     [self creatOrder];
     PFQuery * query = [PFQuery queryWithClassName:@"Address"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
@@ -92,6 +104,10 @@
     [cardQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
     
     _cardsAvailable = [cardQuery findObjects];
+    
+    
+    PFQuery * bankQuery = [PFQuery queryWithClassName:@"Bank"];
+    _banksAvailable = [bankQuery findObjects];
     
     if([_cardsAvailable count]==1){
         Card *card = [_cardsAvailable objectAtIndex:0];
@@ -104,9 +120,8 @@
          setHidden:YES];
     }
     _countryNames= [query findObjects ];
-    savedAddress.delegate = self;
-    savedCard.delegate=self;
-    
+      [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
     
     
     
@@ -207,10 +222,7 @@ numberOfRowsInComponent:(NSInteger)component
 -(void)creatOrder{
     
     order = [[Order alloc]initWithClassName:@"Order"];
-    //   order.comment=@"Testing";
     order.status  =0 ;
-    //   order.stars = 1;
-    //   order.address = address;
     
     PFQuery *produtQuery = [PFQuery queryWithClassName:@"Product"];
     
@@ -293,6 +305,8 @@ numberOfRowsInComponent:(NSInteger)component
     PFUser * user = [PFUser currentUser];
     Address * address = [self getAddressForOrder];
     order.address = address;
+   order.card = [self getCardForOrder];
+    order.comment = comments.text;
     [order saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(succeeded ? @"Yes" : @"No");
         if(succeeded){
@@ -307,6 +321,16 @@ numberOfRowsInComponent:(NSInteger)component
             PFRelation *relation = [user relationForKey:@"Orders"];
             [relation addObject:order];
             [user save];
+            [self saveERP];
+            
+            
+            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ConfirmationViewController"];
+            UIView * view = controller.view;
+            UILabel * transactionId = (UILabel * )[view viewWithTag:102];
+            transactionId.text=order.objectId;
+            [self.revealViewController pushFrontViewController:controller animated:YES];
+            
+            
         }
     }
      ];
@@ -315,6 +339,14 @@ numberOfRowsInComponent:(NSInteger)component
     
 }
 
+
+-(BOOL)saveERP{
+    ERP* erp  = [[ERP alloc]initWithClassName:@"ERP"];
+    erp.total_price = order.price;
+    erp.order = order;
+   return [erp save];
+    
+}
 -(Address *)getAddressForOrder{
     NSString * viewStreet = self.address.text;
     NSString * viewOffice = self.office.text;
@@ -340,7 +372,7 @@ numberOfRowsInComponent:(NSInteger)component
     
     Card * card = [[Card alloc]initWithClassName:@"Card"];
     card.Card_holder =self.card_holder_name.text;
-    card.cvv=[self.card_number.text longLongValue];
+    card.cvv=[self.card_cvv.text longLongValue];
     
     
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
@@ -356,49 +388,109 @@ numberOfRowsInComponent:(NSInteger)component
     [comps setMonth:viewExpiryMonth];
     [comps setYear:viewExpiryYear];
     NSDate * expiration = [[NSCalendar currentCalendar] dateFromComponents:comps];
-    card.Expiry_date = expiration;
     
     if(order.card !=nil){
         //check cvv
-        if(order.card.cvv !=card.cvv){
-            return nil;
-        }
-        bool isEqual =isEqual && [card.Card_holder isEqualToString:order.card.Card_holder] &&
+       
+        bool isEqual =[card.Card_holder isEqualToString:order.card.Card_holder] &&
         card.card_number==order.card.card_number && viewExpiryMonth ==[self getExpirationMonth:order.card] &&
         viewExpiryYear== [self getExpirationYear:order.card];
         if(isEqual){
+            if(order.card.cvv !=card.cvv){
+                return nil;
+            }
             return order.card;
         }
     }
-    /*
-     card.user =[PFUser currentUser];
-     
-     
-     //card_expiry_month.text= [[NSNumber numberWithLong:[self getExpirationMonth:myCard ]] stringValue];
-     // card_expiry_year.text = [[NSNumber numberWithLong:[self getExpirationYear:myCard ]] stringValue];
-     
-     
-     
-     
-     
-     Address * address = [[Address alloc]initWithClassName:@"Address"];
-     address.street = viewStreet;
-     address.office = viewOffice;
-     address.door = viewDoor;
-     address.user = [PFUser currentUser];
-     
-     if(order.address !=nil){
-     bool isEqual =  [viewOffice isEqualToString:order.address.office] &&
-     [viewStreet isEqualToString:order.address.street] && [viewDoor isEqualToString:order.address.door];
-     if(isEqual){
-     return order.address;
-     }
-     }
-     return address;
-     */
     
-    return nil;
+     card.userID =[PFUser currentUser];
+     card.Expiry_date = expiration;
+    return card;
 }
+
+
+
+/*Collection view controller delegates and data source */
+
+static NSString * const reuseIdentifier = @"BankCell";
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+#pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return  1 ;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [_banksAvailable count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    NSInteger column =  [indexPath row] ;
+    Bank * bank = (Bank * )[_banksAvailable objectAtIndex:column];
+    
+    // Configure the cell
+    PFFile *thumbnail = bank.picture;
+    PFImageView *thumbnailImageView = (PFImageView*)[cell viewWithTag:101];
+    thumbnailImageView.file = thumbnail;
+    [thumbnailImageView loadInBackground];
+    
+    UILabel *label =(UILabel*)[cell viewWithTag:102];
+    label.text = bank.name;
+
+    
+    // Configure the cell
+    
+    return cell;
+}
+
+#pragma mark <UICollectionViewDelegate>
+
+/*
+ // Uncomment this method to specify if the specified item should be highlighted during tracking
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+	return YES;
+ }
+ */
+
+/*
+ // Uncomment this method to specify if the specified item should be selected
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+ return YES;
+ }
+ */
+
+/*
+ // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return NO;
+ }
+ 
+ - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	return NO;
+ }
+ 
+ - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	
+ }
+ */
 
 
 @end
