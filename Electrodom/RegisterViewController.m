@@ -39,6 +39,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)dismiss:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:nil];
+}
 
 
 - (IBAction)signUpPressed:(id)sender {

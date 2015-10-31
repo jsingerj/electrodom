@@ -32,6 +32,7 @@
 		89CF07081BD98E09001DB09B /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07071BD98E09001DB09B /* CardsViewController.m */; };
 		89CF070B1BD98F31001DB09B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF070A1BD98F31001DB09B /* User.m */; };
 		89CF070E1BDC2BE8001DB09B /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF070D1BDC2BE8001DB09B /* Categorie.m */; };
+		89CF07111BE00DCF001DB09B /* MyOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07101BE00DCF001DB09B /* MyOrdersViewController.m */; settings = {ASSET_TAGS = (); }; };
 		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; };
 		C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10793E91BD2D2700024A633 /* NavigationViewController.m */; };
 		C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */; };
@@ -127,6 +128,8 @@
 		89CF070A1BD98F31001DB09B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		89CF070C1BDC2BE8001DB09B /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categorie.h; sourceTree = "<group>"; };
 		89CF070D1BDC2BE8001DB09B /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categorie.m; sourceTree = "<group>"; };
+		89CF070F1BE00DCF001DB09B /* MyOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrdersViewController.h; sourceTree = "<group>"; };
+		89CF07101BE00DCF001DB09B /* MyOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrdersViewController.m; sourceTree = "<group>"; };
 		89FB77D21BB8A8670043EF4A /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		89FB77D31BB8A8670043EF4A /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		C10793E81BD2D2700024A633 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 				89CF06B71BC70832001DB09B /* CartViewController.m */,
 				89CF06D31BD28537001DB09B /* OrderViewController.h */,
 				89CF06D41BD28537001DB09B /* OrderViewController.m */,
+				89CF070F1BE00DCF001DB09B /* MyOrdersViewController.h */,
+				89CF07101BE00DCF001DB09B /* MyOrdersViewController.m */,
 				89CF06D61BD2A5F2001DB09B /* UIDownPicker.h */,
 				89CF06D71BD2A5F2001DB09B /* UIDownPicker.m */,
 				89CF06EF1BD6A804001DB09B /* NFCViewController.h */,
@@ -450,6 +455,7 @@
 				TargetAttributes = {
 					C1F8E1131BB7287100484FBA = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 7L24J8625C;
 					};
 					C1F8E12F1BB7287200484FBA = {
 						CreatedOnToolsVersion = 6.1;
@@ -514,6 +520,7 @@
 				C1F8E11D1BB7287100484FBA /* AppDelegate.m in Sources */,
 				89CF06AB1BC1BFCB001DB09B /* Product.m in Sources */,
 				89CF06D81BD2A5F2001DB09B /* UIDownPicker.m in Sources */,
+				89CF07111BE00DCF001DB09B /* MyOrdersViewController.m in Sources */,
 				89CF06D51BD28537001DB09B /* OrderViewController.m in Sources */,
 				C1FFDEFE1BB739EC0087DC68 /* GlobalElectrodom.m in Sources */,
 				C14212831BDDBCAB00CDAD2E /* TestCollectionViewController.m in Sources */,
@@ -654,6 +661,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Electrodom/parse-library-1.8.5",
@@ -664,6 +673,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -671,6 +681,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Electrodom/parse-library-1.8.5",
@@ -681,6 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jsinger.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

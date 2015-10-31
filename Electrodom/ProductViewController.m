@@ -102,10 +102,9 @@
 
     Promotion * p = [object objectForKey:@"promotionID"];
 
-    
+    UILabel *offerLabel = (UILabel*) [cell viewWithTag:120];
     if(p!=nil)
     {
-        UILabel *offerLabel = (UILabel*) [cell viewWithTag:120];
         offerLabel.text = @"Oferta";
         PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
         Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:p.objectId] getFirstObject];
@@ -118,6 +117,10 @@
         [prepTimeLabel setFont:[UIFont boldSystemFontOfSize:17]];
         
      
+    } else {
+        offerLabel.text = @"";
+        [prepTimeLabel setFont:[UIFont systemFontOfSize:17]];
+        
     }
 
     
