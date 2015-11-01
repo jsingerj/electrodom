@@ -29,6 +29,10 @@
     self.password.delegate=self;
 
     
+    //SACAR EL DIA DE LA DEFENSA
+    self.user_name.text = @"jjcambon88@gmail.com";
+    self.password.text = @"111111";
+    
     [super viewDidLoad];
     [self.activityIndicator setHidden:YES];
     [self.activityIndicator stopAnimating];

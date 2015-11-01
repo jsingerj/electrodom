@@ -100,8 +100,13 @@
     }
     
     
-    [super viewDidLoad];
     
+       //PFQuery *query = [PFQuery queryWithClassName:@"Product"];
+      //[query whereKeyExists:@"promotionID"];
+      //[query whereKey:@"Category" equalTo:product.categorie];
+    
+    
+    [super viewDidLoad];
     
 }
 

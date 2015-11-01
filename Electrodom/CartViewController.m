@@ -187,11 +187,31 @@
 }
 
 - (IBAction)deleteItem:(id)sender {
-   /* ProductViewCell* cell =  (ProductViewCell*)[[sender superview]superview];
+    ProductViewCell* cell =  (ProductViewCell*)[[sender superview]superview];
     Product *product = cell.product;
-    amount = amount - (product.quantity * product.price);*/
+   // amount = amount - (product.quantity * product.price);*/
     //no habria que hacer eso porque al recargar los objetos se hace la cuenta bien
+    
+  /*  PFQuery *query = [PFQuery queryWithClassName:@"Product"];
+    [query fromLocalDatastore];
+    [[query getObjectInBackgroundWithId:product.objectId] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            // Something went wrong.
+            return task;
+        }
+        
+        Product *p = task;
+        [p unpinInBackground];
+        return task;
+    }];*/
+    
+    [product unpin];
+    amount = amount - (product.quantity * product.price);
+    NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
+    total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
+
     [self loadObjects];
+    [self.tableView reloadData];
     
     
 }

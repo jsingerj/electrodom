@@ -13,7 +13,6 @@
 
 @synthesize username;
 @synthesize last_name;
-@synthesize password;
 @synthesize name;
 @synthesize repeat_password;
 @synthesize ID;
@@ -87,21 +86,7 @@
                 }
                 else
                 {
-                    NSString *pass = password.text;
-                    PFUser *user =    [PFUser currentUser];
-                   
-                    NSString *oldPass= [PFUser currentUser][@"password"];
-                    //password con contrasena actual de la base
-                    if(pass!=oldPass && password.text.length>0)
-                    {
-                        UIAlertView *messageView = [[UIAlertView alloc] initWithTitle:@"Editar perfil " message:@"La contraseña no coincide con la contraseña actual. " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [messageView show];
-                        self.password.text = @"";
-                        return ;
-                        
-                    }
-                    else
-                    {
+           
                     @try
                     {
                         PFUser *user = [PFUser currentUser];
@@ -110,7 +95,6 @@
                             user.password =change_password.text;
                         user.email = username.text;
                         
-                        // other fields can be set just like with PFObject
                         user[@"name"] =name.text;
                         user[@"last_name"] =last_name.text;
                         user[@"document_number"] =ID.text;
@@ -153,7 +137,7 @@
                         phone.text = @"";
                         return ;
                   }
-                    }
+                    //}
                     
                 }
                 
@@ -165,12 +149,9 @@
 
 }
 
-- (IBAction)logOut:(id)sender {
-    if ([PFUser currentUser]) {
-        [PFUser logOut];
-    }
+
     
-}
+
 
 
 @end

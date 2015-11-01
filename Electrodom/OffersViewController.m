@@ -145,7 +145,8 @@
         
         
         UILabel *fPrice = (UILabel*) [cell viewWithTag:106];
-        long finalPrice = price * (1 - (discount/100));
+        float x = 1 - ((float)discount/100);
+        long finalPrice = price * x ;
         NSString *realP = [[NSNumber numberWithLong:finalPrice] stringValue];
         NSString *total = [NSString stringWithFormat: @"%@ %@", coin, realP];
         fPrice.text = total ;
@@ -179,7 +180,7 @@
         NSString  * desc =[object objectForKey:@"description"];
         product.description =desc;
         product.brand = [object objectForKey:@"Marca"];
-        product.promotion = [object objectForKey:@"promotion"];
+        product.promotion = [object objectForKey:@"promotionID"];
         // product.categoryId = [object objectForKey:@"categoryId"];
         destViewController.product = product;
         
