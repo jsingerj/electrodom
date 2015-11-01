@@ -19,7 +19,6 @@
 @dynamic  date;
 @synthesize  productsOrders;
 
-
 + (NSString *)parseClassName {
     return @"Order";
 }
@@ -50,6 +49,16 @@
     }
     [super save];
     return true;
+}
+
+-(long)getStatus:(NSString *)fromString {
+    
+    if ([fromString isEqualToString:@"APPROVED"]){
+        return 1 ;
+    }else if([fromString isEqualToString:@"REJECTED"]){
+        return 2;
+    }
+    return 0 ;
 }
 
 

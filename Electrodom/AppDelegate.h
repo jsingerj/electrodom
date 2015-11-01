@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-    #import <Parse/Parse.h>
-
+#import <Parse/Parse.h>
+#import <ParseCrashReporting/ParseCrashReporting.h>
+#import <ParseTwitterUtils/ParseTwitterUtils.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

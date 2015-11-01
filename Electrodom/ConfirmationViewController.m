@@ -13,14 +13,21 @@
 
 @implementation ConfirmationViewController
 
+@synthesize order;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-   //_barButton.target = self.revealViewController;
-   // _barButton.action = @selector(revealToggle:);
+   _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
     
-   //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    UIView * view = self.view;
+    UILabel * transactionId = (UILabel * )[view viewWithTag:102];
+    transactionId.text=order.objectId;
+    
+    
+    
+ //  [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     
 }

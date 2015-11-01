@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+
+
 @interface AppDelegate ()
 
 @end
@@ -27,16 +29,18 @@
     // ****************************************************************************
   // [Parse setApplicationId:@"your_application_id" clientKey:@"your_client_key"];
    // [PFFacebookUtils initializeFacebook];
-  //  [PFTwitterUtils initializeWithConsumerKey:@"your_twitter_consumer_key" consumerSecret:@"your_twitter_consumer_secret"];
+  //  [PFTwitterUtils initializeWithConsumerKey:@"your_twitter_consumer_key" consumerSecret:@"your_twitter_consumer_secret"];;
     
-    
+ //   ParseCrashReporting * parseCrash = Pa
+  //  [ParseCrashReporting description];
+
     // Initialize Parse.
     [Parse setApplicationId:@"175QNzZAeHbiy2HMINLxc7EzgaV45xChKHkEFJaZ"
                   clientKey:@"GYw2VgESF4WziHntvBWYK3x2XzAXk5bxh4uVltXT"];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+
     // Set default ACLs
    // PFACL *defaultACL = [PFACL ACL];
    // [defaultACL setPublicReadAccess:YES];

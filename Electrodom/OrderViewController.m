@@ -11,6 +11,8 @@
 #import <ParseUI/ParseUI.h>
 #import "ERP.h"
 #import "ConfirmationViewController.h"
+#import "CashViewController.h"
+#import "CashOrder.h"
 @implementation OrderViewController
 
 @synthesize totalLabel;
@@ -34,25 +36,47 @@
 @synthesize infoView;
 @synthesize comments;
 
+@synthesize address;
+@synthesize textViewTittle;
+
 
 
 - (IBAction)setOn:(id)sender {
     if([sender isOn]){
-        [self.infoView setHidden:NO];
-        [self.cardView setHidden:NO];
-        
-    } else{
-        [self.infoView setHidden:YES];
-        [self.cardView setHidden:YES];
+        [self showFullDetailsInfo:NO];
+        [self showOfflinePayment:YES    ];
+    }else{
+        [self showFullDetailsInfo:YES];
+        [self showOfflinePayment:NO];
+
     }
     
 }
+-(void)showFullDetailsInfo:(BOOL)hidden{
+    
+  
+        [self.infoView setHidden:hidden];
+        [self.cardView setHidden:hidden];
+        [self showCommentsOption:hidden];
+        
+}
 
+-(void)showOfflinePayment:(BOOL)hidden {
+    
+    [self.offlinePayment setHidden:hidden];
+    
+    
+}
+
+-(void)showNFCPayment:(BOOL)hidden{
+    [self.nfcLabel setHidden:hidden];
+    [self.nfcSwitcher setHidden:hidden];
+    [self.nfcDisclaimer setHidden:hidden];
+}
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if(textField.tag==101){
-        
         
         
         // Do whatever you want
@@ -84,6 +108,12 @@
     return NO;
 }
 
+-(void)showCommentsOption:(BOOL)show{
+    [comments setHidden:show];
+    [textViewTittle setHidden:show];
+    
+}
+
 
 - (void)viewDidLoad
 {
@@ -94,22 +124,27 @@
     savedAddress.delegate = self;
     savedCard.delegate=self;
 
-    
-    
+    [self showFullDetailsInfo:![switcher isOn]];
     [self creatOrder];
+   
+    
+    /*QUERIES*/
     PFQuery * query = [PFQuery queryWithClassName:@"Address"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     
     PFQuery * cardQuery = [PFQuery queryWithClassName:@"Card"];
     [cardQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
     
+    //  PFQuery * bankQuery = [PFQuery queryWithClassName:@"Bank"];
+    //   _banksAvailable = [bankQuery findObjects];
+    
+    
     _cardsAvailable = [cardQuery findObjects];
+     _countryNames= [query findObjects ];
     
-    
-    PFQuery * bankQuery = [PFQuery queryWithClassName:@"Bank"];
-    _banksAvailable = [bankQuery findObjects];
-    
-    if([_cardsAvailable count]==1){
+
+    /*MANAGE VISILBITY*/
+    if([_cardsAvailable count]>=1){
         Card *card = [_cardsAvailable objectAtIndex:0];
         [self loadCardView:card];
         order.card = card;
@@ -119,11 +154,17 @@
         [savedCard
          setHidden:YES];
     }
-    _countryNames= [query findObjects ];
-      [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-
     
-    
+    if([_countryNames count]>=1){
+        Address *myAddress = [_countryNames objectAtIndex:0];
+        [self loadAddressView:myAddress];
+        order.address = myAddress;
+        
+    }
+    if([_cardsAvailable count]<=1){
+        [savedCard
+         setHidden:YES];
+    }
     
     
 }
@@ -151,8 +192,8 @@ numberOfRowsInComponent:(NSInteger)component
             forComponent:(NSInteger)component
 {
     if(myPickerView.tag==110){
-        Address * address=  (Address*)_countryNames[row];
-        return [[address.street stringByAppendingString:@" "]stringByAppendingString:address.door ];
+        Address * myAddress=  (Address*)_countryNames[row];
+        return [[myAddress.street stringByAppendingString:@" "]stringByAppendingString:myAddress.door ];
         
     }
     else if(myPickerView.tag==120){
@@ -298,15 +339,97 @@ numberOfRowsInComponent:(NSInteger)component
      }
      */
 }
+- (void)saveOrder:(void (^)(BOOL succeeded, NSError *error))iteratorBlock{
+  
+    
+    BOOL onlinePayment = [switcher isOn];
+    
+    BOOL checkCC = onlinePayment || (!onlinePayment && [self.nfcSwitcher isOn]);
+    if(onlinePayment){
+        Address * myAddress = [self getAddressForOrder];
+        order.address = myAddress;
+        order.comment = comments.text;
+        order.type = 1;
+    }else{
+        order.type = 2;
+    }
+    if(checkCC){
+        order.card = [self getCardForOrder];
+    }
+    [order saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        iteratorBlock(succeeded,error);
+    
+    }];
+    
+
+    
+    
+}
+
 - (IBAction)confirmOrder:(id)sender {
     
     /*CREAR ORDEN CON PRODUCTS ASOCIADOS, ESTA HARDOCDEADO, SACAR HARCODEO Y TOMAR DLE AS VISTAS CORRESPONDIENTES-TANTO PRODUCTOS OCMO INFO PERSONAL-*/
-    
     PFUser * user = [PFUser currentUser];
-    Address * address = [self getAddressForOrder];
-    order.address = address;
-   order.card = [self getCardForOrder];
-    order.comment = comments.text;
+
+    [self saveOrder:^(BOOL succeeded, NSError *error) {
+        if(succeeded){
+            for (int i=0; i<[order.productsOrders count]; i++) {
+                PFRelation *relationProduct = [order relationForKey:@"products"];
+                ProductOrder * productOrder = (ProductOrder* )[order.productsOrders objectAtIndex:i];
+                productOrder.order = order;
+                [productOrder save];
+                [relationProduct addObject:productOrder];
+            }
+            [order save];
+            PFRelation *relation = [user relationForKey:@"Orders"];
+            [relation addObject:order];
+            [user save];
+            [self saveERP];
+            
+            if([switcher isOn]){
+                ConfirmationViewController *controller = (ConfirmationViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ConfirmationViewController"];
+                controller.order = order;
+                SWRevealViewController *rvc = self.revealViewController;
+                UINavigationController* navController = (UINavigationController*)rvc.frontViewController;
+                [navController setViewControllers: @[controller] animated: NO ];
+                [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
+            }else{
+                CashViewController *controller = (CashViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"CashViewController"];
+                controller.cashOrder = self.cashOrder;
+                [self.navigationController pushViewController:controller animated:YES];
+                
+            }
+            
+        }
+    }];
+    
+    
+    
+}
+
+
+
+
+- (IBAction)confirmOrder2:(id)sender {
+    
+    /*CREAR ORDEN CON PRODUCTS ASOCIADOS, ESTA HARDOCDEADO, SACAR HARCODEO Y TOMAR DLE AS VISTAS CORRESPONDIENTES-TANTO PRODUCTOS OCMO INFO PERSONAL-*/
+    
+    
+    BOOL onlinePayment = [switcher isOn];
+    
+    BOOL checkCC = onlinePayment || (!onlinePayment && [self.nfcSwitcher isOn]);
+    PFUser * user = [PFUser currentUser];
+    if(onlinePayment){
+        Address * myAddress = [self getAddressForOrder];
+        order.address = myAddress;
+        order.comment = comments.text;
+        order.type = 1;
+    }else{
+        order.type = 2;
+    }
+    if(checkCC){
+      order.card = [self getCardForOrder];
+    }
     [order saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(succeeded ? @"Yes" : @"No");
         if(succeeded){
@@ -323,13 +446,22 @@ numberOfRowsInComponent:(NSInteger)component
             [user save];
             [self saveERP];
             
+            if([switcher isOn]){
+                
             
-            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ConfirmationViewController"];
-            UIView * view = controller.view;
-            UILabel * transactionId = (UILabel * )[view viewWithTag:102];
-            transactionId.text=order.objectId;
-            [self.revealViewController pushFrontViewController:controller animated:YES];
+            ConfirmationViewController *controller = (ConfirmationViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ConfirmationViewController"];
+            controller.order = order;
+       
+            SWRevealViewController *rvc = self.revealViewController;
             
+            
+            UINavigationController* navController = (UINavigationController*)rvc.frontViewController;
+            [navController setViewControllers: @[controller] animated: NO ];
+            [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
+            }else{
+                CashViewController *controller = (CashViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"CashViewController"];
+                [self.navigationController pushViewController:controller animated:YES];
+            }
             
         }
     }
@@ -352,11 +484,11 @@ numberOfRowsInComponent:(NSInteger)component
     NSString * viewOffice = self.office.text;
     NSString * viewDoor = self.door.text;
     
-    Address * address = [[Address alloc]initWithClassName:@"Address"];
-    address.street = viewStreet;
-    address.office = viewOffice;
-    address.door = viewDoor;
-    address.user = [PFUser currentUser];
+    Address * myAddress = [[Address alloc]initWithClassName:@"Address"];
+    myAddress.street = viewStreet;
+    myAddress.office = viewOffice;
+    myAddress.door = viewDoor;
+    myAddress.user = [PFUser currentUser];
     
     if(order.address !=nil){
         bool isEqual =  [viewOffice isEqualToString:order.address.office] &&
@@ -365,7 +497,7 @@ numberOfRowsInComponent:(NSInteger)component
             return order.address;
         }
     }
-    return address;
+    return myAddress;
 }
 
 -(Card * )getCardForOrder {
@@ -408,9 +540,43 @@ numberOfRowsInComponent:(NSInteger)component
     return card;
 }
 
+- (IBAction)sendOrder:(id)sender {
+    [self saveOrder:^(BOOL succeeded, NSError *error) {
+        if(succeeded){
+            CashOrder * cashOrder = [[CashOrder alloc]initWithClassName:@"CashOrder"];
+            cashOrder.order= order;
+        
+            [cashOrder saveInBackgroundWithBlock:^(BOOL saved, NSError *error) {
+                if(saved){
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Su pedido fue transmitido a la caja" message:@"OK" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alertView show];
+                    self.cashOrder = cashOrder;
+                    [self showNFCPayment:NO];
+                }else{
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Ocurrió un error, intente nuevamente" message:@"OK" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alertView show];
 
+                }
+            }];
+        }else{
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Ocurrió un error, intente nuevamente" message:@"OK" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+}
+        
+    }];
+    
+}
+- (IBAction)nfcPayment:(id)sender {
+ 
+    if([sender isOn]){
+        [self.cardView setHidden:NO];
+    }else{
+        [self.cardView setHidden:YES];
+        
+    }}
 
 /*Collection view controller delegates and data source */
+/*
 
 static NSString * const reuseIdentifier = @"BankCell";
 
@@ -419,7 +585,7 @@ static NSString * const reuseIdentifier = @"BankCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+*/
 /*
  #pragma mark - Navigation
  
@@ -429,7 +595,7 @@ static NSString * const reuseIdentifier = @"BankCell";
  // Pass the selected object to the new view controller.
  }
  */
-
+/*
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -460,7 +626,7 @@ static NSString * const reuseIdentifier = @"BankCell";
     
     return cell;
 }
-
+*/
 #pragma mark <UICollectionViewDelegate>
 
 /*

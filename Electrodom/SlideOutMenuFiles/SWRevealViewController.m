@@ -1700,6 +1700,7 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
 
 @implementation SWRevealViewControllerSeguePushController
 
+
 - (void)perform
 {
     SWRevealViewController *rvc = [self.sourceViewController revealViewController];
@@ -1712,6 +1713,16 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
     
 
     
+}
+- (void)perform2
+{
+    SWRevealViewController *rvc = [self.sourceViewController revealViewController];
+    UIViewController *dvc = self.destinationViewController;
+    [rvc pushFrontViewController:dvc animated:YES];
+    
+    UINavigationController* navController = (UINavigationController*)rvc.frontViewController;
+    [navController setViewControllers: @[dvc] animated: NO ];
+
 }
 
 @end

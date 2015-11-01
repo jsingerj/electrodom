@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Order.h"
 #import "SWRevealViewController.h"
 
 @interface ConfirmationViewController : UIViewController
 
 @property (weak,nonatomic) IBOutlet UIBarButtonItem *barButton;
+
+@property (strong, nonatomic)  Order *order;
 
 @end

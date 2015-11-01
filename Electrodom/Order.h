@@ -19,6 +19,7 @@
 @property (nonatomic) long status;
 @property (nonatomic) long stars;
 @property (nonatomic) long price;
+@property (nonatomic) long type;
 
 //@property (nonatomic, strong) PFUser* user;
 @property (nonatomic, strong) Address* address;
@@ -26,5 +27,7 @@
 
 @property (nonatomic, strong) NSMutableArray* productsOrders;
 -(void) addProduct:(Product * )product withQuantity:(int)quantity;
+
+-(long)getStatus:(NSString *)fromString;
 
 @end

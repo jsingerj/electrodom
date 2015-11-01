@@ -64,9 +64,10 @@
     
     
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBuy, btnRefresh,self.garbage, btnMenu,nil]];
-    
+    [self.tableView addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
 }
+
 
 
 

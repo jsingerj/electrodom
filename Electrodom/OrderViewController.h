@@ -11,7 +11,7 @@
 #import "Order.h"
 #import "Address.h"
 #import "ProductOrder.h"
-
+#import "CashOrder.h"
 @interface OrderViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
 
@@ -26,8 +26,13 @@
 
 @property (strong, nonatomic)  Address *selected_address;
 @property (strong, nonatomic)  Order *order;
+@property (strong, nonatomic)  CashOrder *cashOrder;
+
 @property (nonatomic)  int total_price;
 @property (weak, nonatomic) IBOutlet UITextView *comments;
+
+@property (weak, nonatomic) IBOutlet UILabel *textViewTittle;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 /*RESUME*/
@@ -38,6 +43,7 @@
 /*SUBVIEWS*/
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
+@property (weak, nonatomic) IBOutlet UIView *offlinePayment;
 
 
 /*ADDRESS*/
@@ -64,6 +70,12 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerCard;
 
 
+
+/*NFC PAYMENT*/
+@property (weak, nonatomic) IBOutlet UILabel *nfcLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *nfcSwitcher;
+
+@property (weak, nonatomic) IBOutlet UILabel *nfcDisclaimer;
 
 @property(nonatomic) int data_fetched;
 @end
