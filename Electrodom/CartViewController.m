@@ -55,15 +55,13 @@
     [super viewDidLoad];
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    UIBarButtonItem *btnBuy = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buy:)];
-    UIBarButtonItem *btnRefresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-    UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithImage:nil style:(UIBarButtonItemStylePlain) target:(self.revealViewController) action:(@selector(revealToggle:))];
-    btnMenu.title=@"Menu";
+    UIBarButtonItem *btnBuy = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"purchase1.png"] style: UIBarButtonItemStylePlain target:self action:@selector(buy:)];
     
+    UIBarButtonItem *btnMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:(UIBarButtonItemStylePlain) target:(self.revealViewController) action:(@selector(revealToggle:))];
     
-    
-    
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBuy, btnRefresh,self.garbage, btnMenu,nil]];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBuy,self.garbage,nil]];
+    [self.navigationItem setLeftBarButtonItem:btnMenu ];
+     
     [self.tableView addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
 }
@@ -175,7 +173,7 @@
     NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
     total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
     product.quantity=value;
-    [product pin];
+    [[GlobalElectrodom getInstance]addProduct:product];
     
   }
 
@@ -204,8 +202,8 @@
         [p unpinInBackground];
         return task;
     }];*/
+    [[GlobalElectrodom getInstance]removeProduct:product];
     
-    [product unpin];
     amount = amount - (product.quantity * product.price);
     NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
     total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
@@ -216,14 +214,62 @@
     
 }
 - (IBAction)delete_Cart:(id)sender {
-    [Product unpinAllObjects];
+    
+    UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Confirmación"
+                                                      message:@"Confirma que desea borrar su orden actual?"
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"Si", @"No", nil];
+    myAlert.tag=100;
+    [myAlert show];
+    
+    
+    /*[Product unpinAllObjects];
     amount = 0;
     NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
     total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
     [self loadObjects];
-    
+    */
 
 }
+
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    
+    // Is this my Alert View?
+    if (alertView.tag == 100) {
+        //Yes
+        
+        
+        // You need to compare 'buttonIndex' & 0 to other value(1,2,3) if u have more buttons.
+        // Then u can check which button was pressed.
+        if (buttonIndex == 0) {// 1st Other Button
+            [[GlobalElectrodom getInstance]restoreOrder];
+            GlobalElectrodom * instance = [GlobalElectrodom getInstance];
+            instance.totalProducts=  0;
+            amount = 0;
+            NSString *tot = [[NSNumber numberWithLong:amount] stringValue];
+            total_amount.text  = [NSString stringWithFormat: @"%@ %@", @"$", tot];
+            [self loadObjects];
+        }
+        else if (buttonIndex == 1) {// 2nd Other Button
+            
+            
+        }
+        
+    }
+    else {
+        //No
+        // Other Alert View
+        
+    }
+    
+}
+
+
+
 
 
 - (IBAction)buy:(id)sender {

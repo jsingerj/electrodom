@@ -12,5 +12,7 @@
 
 
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *_barButton;
+
 
 @end

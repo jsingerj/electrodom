@@ -8,6 +8,7 @@
 
 #import "ProductDetailViewController.h"
 #import "CartViewController.h"
+#import "GlobalElectrodom.h"
 @implementation ProductDetailViewController
 @synthesize product_description;
 @synthesize name;
@@ -20,24 +21,29 @@
 @synthesize promotion_Price;
 @synthesize discount;
 @synthesize line;
-
-
+@synthesize rightButton;
+-(void)setTotalProducts{
+    GlobalElectrodom * instance = [GlobalElectrodom getInstance];
+    int total = [instance getTotalProducts];
+    NSString * totalProductsString =[NSString stringWithFormat:@"%d",total];
+    [rightButton setTitle: totalProductsString forState:UIControlStateNormal];
+}
 
 -(void)createTopBar {
     
     
     UIView* leftButtonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 60)];
-    UIButton* leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    leftButton.backgroundColor = [UIColor clearColor];
-    leftButton.frame = leftButtonView.frame;
-    [leftButton setImage:[UIImage imageNamed:@"shopping122.png"] forState:UIControlStateNormal];
-    
-    [leftButton setTitle:@"0" forState:UIControlStateNormal];
-    leftButton.tintColor = [UIColor blueColor];
-    leftButton.autoresizesSubviews = YES;
-    leftButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-    [leftButton addTarget:self action:@selector(goToCart:) forControlEvents:UIControlEventTouchUpInside];
-    [leftButtonView addSubview:leftButton];
+   rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    rightButton.backgroundColor = [UIColor clearColor];
+    rightButton.frame = leftButtonView.frame;
+    [rightButton setImage:[UIImage imageNamed:@"shopping122.png"] forState:UIControlStateNormal];
+    [self setTotalProducts];
+    rightButton.tintColor = [UIColor blueColor];
+    rightButton.autoresizesSubviews = YES;
+    rightButton.tag=120;
+    rightButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+    [rightButton addTarget:self action:@selector(goToCart:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButtonView addSubview:rightButton];
     
     UIBarButtonItem* leftBarButton = [[UIBarButtonItem alloc]initWithCustomView:leftButtonView];
     self.navigationItem.rightBarButtonItem = leftBarButton;
@@ -121,11 +127,9 @@
 
 - (IBAction)addProductToCart:(id)sender {
     self.product.quantity = 1;
-    [self.product pin];
-    
-    
-    
-   // [leftButton setTitle:@"0" forState:UIControlStateNormal]; actualizar el el dato de la cantidad de productos
+   [[GlobalElectrodom getInstance]addProduct:self.product];
+    [self setTotalProducts];
+   //[leftButton setTitle:@"0" forState:UIControlStateNormal]; actualizar el el dato de la cantidad de productos
     
     
 }
@@ -158,7 +162,6 @@
     NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
     NSString *varyingString2 = strFromInt;
     prepTimeLabel.text = [NSString stringWithFormat: @"%@ %@", @"$", varyingString2]; ;
-
     
      return cell;
 }

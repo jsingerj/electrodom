@@ -13,7 +13,6 @@
 
 @implementation NFCViewController
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"scan_product"]) {
         PFQuery *query = [PFQuery queryWithClassName:@"Product"];
@@ -30,6 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      __barButton.target = self.revealViewController;
+      __barButton.action = @selector(revealToggle:);
+       [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
+    
     // Do any additional setup after loading the view, typically from a nib.
  //   _barButton.target = self.revealViewController;
  //   _barButton.action = @selector(revealToggle:);

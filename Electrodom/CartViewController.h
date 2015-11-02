@@ -10,7 +10,7 @@
 #import <ParseUI/ParseUI.h>
 #import "Product.h"
 
-@interface CartViewController : PFQueryTableViewController
+@interface CartViewController : PFQueryTableViewController<UIAlertViewDelegate>
 
 
 @property (nonatomic, strong) Product *product;

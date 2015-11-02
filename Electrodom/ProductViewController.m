@@ -10,6 +10,7 @@
 #import "ProductDetailViewController.h"
 #import "Product.h"
 #import "SWRevealViewController.h"
+#import "GlobalElectrodom.h"
 @interface ProductViewController ()
 
 
@@ -54,6 +55,17 @@
     _barButton.action = @selector(revealToggle:);
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    PFQuery *query=[PFQuery queryWithClassName:@"Product"];
+    [query fromLocalDatastore];
+    [query countObjectsInBackgroundWithBlock:^(int count, NSError *error)
+    {
+        if (!error) {
+            GlobalElectrodom * instance = [GlobalElectrodom getInstance];
+            instance.totalProducts=count;
+        }
+    }];
+
+    
     
 }
 

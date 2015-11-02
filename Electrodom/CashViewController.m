@@ -9,6 +9,7 @@
 #import "CashViewController.h"
 #import "ConfirmationViewController.h"
 #import "SWRevealViewController.h"
+#import "GlobalElectrodom.h"
 @interface CashViewController ()
 
 @end
@@ -41,7 +42,8 @@
     [cashOrder saveInBackgroundWithBlock:^(BOOL saved, NSError *error) {
         UIAlertView* alertView ;
         if(saved){
-            alertView = [[UIAlertView alloc] initWithTitle:@"Su pedido fue transmitido a la caja" message:@"Gracias por confiar en Electrodom" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alertView = [[UIAlertView alloc] initWithTitle:@"Pago con éxito!" message:@"Gracias por confiar en Electrodom" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [[GlobalElectrodom getInstance]restoreOrder];
             ConfirmationViewController *controller = (ConfirmationViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ConfirmationViewController"];
             controller.order = cashOrder.order;
             SWRevealViewController *rvc = self.revealViewController;

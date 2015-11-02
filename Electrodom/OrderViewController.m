@@ -385,7 +385,7 @@ numberOfRowsInComponent:(NSInteger)component
             [relation addObject:order];
             [user save];
             [self saveERP];
-            
+            [[GlobalElectrodom getInstance]restoreOrder];
             if([switcher isOn]){
                 ConfirmationViewController *controller = (ConfirmationViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ConfirmationViewController"];
                 controller.order = order;

@@ -15,6 +15,11 @@
 
 @implementation AppDelegate
 
+- (void)crash {
+    [NSException raise:NSGenericException format:@"Everything is ok. This is just a test crash."];
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -32,14 +37,14 @@
   //  [PFTwitterUtils initializeWithConsumerKey:@"your_twitter_consumer_key" consumerSecret:@"your_twitter_consumer_secret"];;
     
  //   ParseCrashReporting * parseCrash = Pa
-  //  [ParseCrashReporting description];
+    [ParseCrashReporting enable];
 
     // Initialize Parse.
     [Parse setApplicationId:@"175QNzZAeHbiy2HMINLxc7EzgaV45xChKHkEFJaZ"
                   clientKey:@"GYw2VgESF4WziHntvBWYK3x2XzAXk5bxh4uVltXT"];
     
     // [Optional] Track statistics around application opens.
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+  //  [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     // Set default ACLs
    // PFACL *defaultACL = [PFACL ACL];
@@ -49,9 +54,9 @@
     
     
     
-    [PFUser enableRevocableSessionInBackground];
+ //   [PFUser enableRevocableSessionInBackground];
     
-       
+    //   [self performSelector:@selector(crash) withObject:nil afterDelay:10.0];
     // Override point for customization after application launch.
     return YES;
 }

@@ -13,8 +13,13 @@
 
 +(GlobalElectrodom *)getInstance;
 @property (weak, nonatomic) Order *order;
+@property (nonatomic) int totalProducts;
 
-
-
+-(void)setTotalProducts:(int)total;
+-(int)getTotalProducts;
+-(void)restoreOrder;
+-(BOOL)removeProduct:(Product *)product ;
+-(BOOL)addProduct:(Product *)product;
+-(void)logOut;
 @end
     

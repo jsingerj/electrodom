@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Qv-P8-dV0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Qv-P8-dV0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <deployment identifier="iOS"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -190,7 +189,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="b3M-pB-yI6">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" style="done" id="JOO-AL-TjY"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" style="done" id="JOO-AL-TjY"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -202,7 +201,7 @@
             </objects>
             <point key="canvasLocation" x="991.5" y="-408.5"/>
         </scene>
-        <!--Title-->
+        <!--Información Producto-->
         <scene sceneID="I6C-po-1if">
             <objects>
                 <viewController id="6M7-EX-5eG" customClass="ProductDetailViewController" sceneMemberID="viewController">
@@ -248,7 +247,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ix6-ub-cyU">
                                 <rect key="frame" x="302" y="80" width="36" height="28"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MC-Fy-eTF">
@@ -336,7 +335,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="uXc-V8-rMN"/>
+                    <navigationItem key="navigationItem" title="Información Producto" id="uXc-V8-rMN"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -528,7 +527,7 @@
             </objects>
             <point key="canvasLocation" x="2183.5" y="-2708.5"/>
         </scene>
-        <!--Menu-->
+        <!--Editar Información-->
         <scene sceneID="BFB-Cn-9i5">
             <objects>
                 <viewController id="wZC-u0-ajx" customClass="EditViewController" sceneMemberID="viewController">
@@ -606,12 +605,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.28785237250000001" green="0.68856690809999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="9PO-BO-nw7">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="0iH-aB-APz"/>
+                    <navigationItem key="navigationItem" title="Editar Información" id="9PO-BO-nw7">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="0iH-aB-APz"/>
                         <connections>
                             <outlet property="leftBarButtonItem" destination="0iH-aB-APz" id="2aZ-XQ-L0y"/>
                         </connections>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ID" destination="HsG-U7-shm" id="9Mn-dK-Fug"/>
@@ -733,6 +733,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -862,21 +863,18 @@
                                                 <rect key="frame" x="8" y="4" width="89" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="N. Puerta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By7-dO-OUb">
                                                 <rect key="frame" x="8" y="57" width="89" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-       
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ap." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqY-SP-az4">
                                                 <rect key="frame" x="208" y="57" width="45" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-  
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zht-Dp-rSv">
@@ -945,7 +943,7 @@
                                                 <rect key="frame" x="8" y="4" width="89" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                      <nil key="highlightedColor"/>
+                                                <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeP-UX-OeC">
                                                 <rect key="frame" x="8" y="92" width="89" height="21"/>
@@ -957,13 +955,13 @@
                                                 <rect key="frame" x="183" y="92" width="45" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                  <nil key="highlightedColor"/>
+                                                <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUl-CS-bAA">
                                                 <rect key="frame" x="8" y="49" width="89" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                          <nil key="highlightedColor"/>
+                                                <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6VC-lg-IDo">
                                                 <rect key="frame" x="105" y="45" width="241" height="30"/>
@@ -1263,7 +1261,7 @@
             </objects>
             <point key="canvasLocation" x="-141.5" y="-1492.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Leer producto-->
         <scene sceneID="ebt-rw-u4v">
             <objects>
                 <viewController id="Xji-Y5-uI9" customClass="NFCViewController" sceneMemberID="viewController">
@@ -1291,7 +1289,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.28785237250000001" green="0.68856690809999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Leer producto" id="tf7-eT-6Lq">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="2rq-qA-M12"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="_barButton" destination="2rq-qA-M12" id="VBR-V5-koA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwN-Bs-m1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1438,7 +1443,6 @@
                                 <color key="backgroundColor" red="0.17614215350000001" green="0.17614215350000001" blue="0.17614215350000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="8PU-QZ-Zne" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSeguePushController" id="tdL-7Y-z5d"/>
-
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="seven" textLabel="1Xb-VX-g9a" style="IBUITableViewCellStyleDefault" id="lNN-Nc-8zE">
@@ -1459,7 +1463,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.17614215350000001" green="0.17614215350000001" blue="0.17614215350000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="DPO-Y6-TyX"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="logOut" id="DPO-Y6-TyX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1474,7 +1478,7 @@
             </objects>
             <point key="canvasLocation" x="604.5" y="-2082.5"/>
         </scene>
-        <!--Promotions-->
+        <!--Promociones-->
         <scene sceneID="ZvA-VH-GrV">
             <objects>
                 <tableViewController id="rVf-Ju-FrR" customClass="OffersViewController" sceneMemberID="viewController">
@@ -1554,8 +1558,8 @@
                             <outlet property="delegate" destination="rVf-Ju-FrR" id="a74-T3-aPW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Promotions" id="HRW-A3-DOZ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="7aT-XO-YAE"/>
+                    <navigationItem key="navigationItem" title="Promociones" id="HRW-A3-DOZ">
+                        <barButtonItem key="leftBarButtonItem" image="menu.png" id="7aT-XO-YAE"/>
                         <connections>
                             <outlet property="leftBarButtonItem" destination="7aT-XO-YAE" id="qhr-kp-Yx7"/>
                         </connections>
@@ -1575,14 +1579,14 @@
         <image name="Captura de pantalla 2015-10-20 a las 13.52.36.png" width="874" height="998"/>
         <image name="cart_ok.png" width="512" height="512"/>
         <image name="garbage12.png" width="24" height="24"/>
+        <image name="menu.png" width="32" height="32"/>
         <image name="nfc1.png" width="24" height="24"/>
         <image name="shopping100.png" width="24" height="24"/>
         <image name="shopping122.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dzy-WX-Gfa"/>
-        <segue reference="tiX-w1-Tlw"/>
         <segue reference="DPO-Y6-TyX"/>
+        <segue reference="tiX-w1-Tlw"/>
         <segue reference="Agm-Ei-Z1b"/>
     </inferredMetricsTieBreakers>
 </document>

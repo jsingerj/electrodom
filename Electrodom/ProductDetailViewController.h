@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *discount;
 @property (weak, nonatomic) IBOutlet UILabel *line;
 
+@property (weak, nonatomic)  UIButton* rightButton;
 
 @property (nonatomic, strong) Product *product;
 

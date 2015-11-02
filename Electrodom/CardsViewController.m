@@ -31,11 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //  _barButton.target = self.revealViewController;
-    //  _barButton.action = @selector(revealToggle:);
-    UITableView * table = self.tableView;
-    //   [self.tableView addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
+    UITableView * table = self.tableView;
+       
     // Do any additional setup after loading the view, typically from a nib.
     // _barButton.target = self.revealViewController;
     // _barButton.action = @selector(revealToggle:);
@@ -50,16 +48,11 @@
 
 - (PFQuery *)queryForTable
 {
-   
-   
     PFUser *user = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query whereKey:@"active" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"userID" equalTo:[PFUser currentUser]];
-  
      return query;
-    
-   
 }
 
 

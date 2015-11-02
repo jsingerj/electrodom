@@ -32,7 +32,7 @@
 		89CF07081BD98E09001DB09B /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07071BD98E09001DB09B /* CardsViewController.m */; };
 		89CF070B1BD98F31001DB09B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF070A1BD98F31001DB09B /* User.m */; };
 		89CF070E1BDC2BE8001DB09B /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF070D1BDC2BE8001DB09B /* Categorie.m */; };
-		89CF07111BE00DCF001DB09B /* MyOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07101BE00DCF001DB09B /* MyOrdersViewController.m */; settings = {ASSET_TAGS = (); }; };
+		89CF07111BE00DCF001DB09B /* MyOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CF07101BE00DCF001DB09B /* MyOrdersViewController.m */; };
 		89FB77D41BB8A8670043EF4A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FB77D31BB8A8670043EF4A /* RegisterViewController.m */; };
 		C10793EA1BD2D2700024A633 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10793E91BD2D2700024A633 /* NavigationViewController.m */; };
 		C109E72E1BD2DA7E000981F2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C109E72D1BD2DA7E000981F2 /* SWRevealViewController.m */; };
@@ -41,6 +41,10 @@
 		C14212831BDDBCAB00CDAD2E /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14212821BDDBCAB00CDAD2E /* TestCollectionViewController.m */; };
 		C162536C1BE57B9400A26E68 /* CashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C162536B1BE57B9400A26E68 /* CashViewController.m */; };
 		C162536F1BE5857000A26E68 /* CashOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = C162536E1BE5857000A26E68 /* CashOrder.m */; };
+		C16253731BE6BA4E00A26E68 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C16253721BE6BA4E00A26E68 /* menu.png */; };
+		C16253761BE6C2CA00A26E68 /* purchase1.png in Resources */ = {isa = PBXBuildFile; fileRef = C16253741BE6C2CA00A26E68 /* purchase1.png */; };
+		C16253771BE6C2CA00A26E68 /* purchase2.png in Resources */ = {isa = PBXBuildFile; fileRef = C16253751BE6C2CA00A26E68 /* purchase2.png */; };
+		C16253791BE6FA5800A26E68 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C16253781BE6FA5800A26E68 /* libstdc++.6.0.9.dylib */; };
 		C17D70BA1BD449B500ABE01E /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = C17D70B91BD449B500ABE01E /* Address.m */; };
 		C17D70BD1BD4557900ABE01E /* ProductOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = C17D70BC1BD4557900ABE01E /* ProductOrder.m */; };
 		C1AB75481BDF2B7C000613B6 /* cart_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AB75471BDF2B7C000613B6 /* cart_ok.png */; };
@@ -146,6 +150,10 @@
 		C162536B1BE57B9400A26E68 /* CashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashViewController.m; sourceTree = "<group>"; };
 		C162536D1BE5857000A26E68 /* CashOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashOrder.h; sourceTree = "<group>"; };
 		C162536E1BE5857000A26E68 /* CashOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashOrder.m; sourceTree = "<group>"; };
+		C16253721BE6BA4E00A26E68 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		C16253741BE6C2CA00A26E68 /* purchase1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase1.png; sourceTree = "<group>"; };
+		C16253751BE6C2CA00A26E68 /* purchase2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase2.png; sourceTree = "<group>"; };
+		C16253781BE6FA5800A26E68 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		C17D70B81BD449B500ABE01E /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		C17D70B91BD449B500ABE01E /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 		C17D70BB1BD4557900ABE01E /* ProductOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductOrder.h; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C16253791BE6FA5800A26E68 /* libstdc++.6.0.9.dylib in Frameworks */,
 				C109E7321BD2DC78000981F2 /* UIKit.framework in Frameworks */,
 				C109E7301BD2DC68000981F2 /* Foundation.framework in Frameworks */,
 				C1ECDBF31BB753BE00CC2A9A /* Social.framework in Frameworks */,
@@ -276,6 +285,7 @@
 		C1ECDBD31BB7502400CC2A9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C16253781BE6FA5800A26E68 /* libstdc++.6.0.9.dylib */,
 				C109E7311BD2DC78000981F2 /* UIKit.framework */,
 				C109E72F1BD2DC68000981F2 /* Foundation.framework */,
 				C1ECDBF21BB753BE00CC2A9A /* Social.framework */,
@@ -341,6 +351,9 @@
 		C1F8E1171BB7287100484FBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C16253741BE6C2CA00A26E68 /* purchase1.png */,
+				C16253751BE6C2CA00A26E68 /* purchase2.png */,
+				C16253721BE6BA4E00A26E68 /* menu.png */,
 				C1AB75471BDF2B7C000613B6 /* cart_ok.png */,
 				89CF06F21BD6A904001DB09B /* Captura de pantalla 2015-10-20 a las 13.52.36.png */,
 				89CF06D11BD030FC001DB09B /* nfc1.png */,
@@ -505,8 +518,11 @@
 				C1F8E1281BB7287100484FBA /* Images.xcassets in Resources */,
 				C1FFDEF51BB734D40087DC68 /* Main.storyboard in Resources */,
 				89CF06B51BC6383C001DB09B /* images.jpg in Resources */,
+				C16253761BE6C2CA00A26E68 /* purchase1.png in Resources */,
+				C16253731BE6BA4E00A26E68 /* menu.png in Resources */,
 				89CF06CE1BD0275B001DB09B /* shopping122.png in Resources */,
 				C1AB75481BDF2B7C000613B6 /* cart_ok.png in Resources */,
+				C16253771BE6C2CA00A26E68 /* purchase2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
