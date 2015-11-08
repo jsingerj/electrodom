@@ -84,7 +84,8 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query includeKey:@"CategoryID"];
+    [query includeKey:@"CategoryId"];
+    [query includeKey:@"promotionID"];
     
     return query;
 }

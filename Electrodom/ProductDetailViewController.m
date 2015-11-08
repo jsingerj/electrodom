@@ -23,7 +23,7 @@
 @synthesize description;
 @synthesize product_brand;
 @synthesize product_price;
-//@synthesize category;
+@synthesize category;
 @synthesize promotion_Price;
 @synthesize discount;
 @synthesize line;
@@ -89,8 +89,8 @@
     product_price.text = str;
     product_brand.text = self.product.Marca;
     
-    if(product.promotion!=nil){
-        NSString *idProm = product.promotion.objectId;
+    if(product.promotionID!=nil){
+        NSString *idProm = product.promotionID.objectId;
         PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
         Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
         long disc = [[prom objectForKey:@"Discount"]longValue];
@@ -115,8 +115,9 @@
         discount.text = @"";
         
     }
+    NSString *cat = [NSString stringWithFormat: @"%@ %@", @"Artículo de ", product.CategoryId.name];
     
-    
+    category.text = cat;
     
     
     
@@ -154,10 +155,9 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Product"];
     [query whereKeyExists:@"promotionID"];
-    NSLog(@"error: %@",product);
-
     [query whereKey:@"CategoryId" equalTo:product.CategoryId];
     [query whereKey:@"objectId" notEqualTo:product.objectId];
+    [query includeKey:@"promotionID"];
     self.results = [query findObjects];
     
     return self.results.count;
@@ -196,10 +196,20 @@
     NSString *brand =  prod.Marca;
     brandLabel.text = brand;
     
+    long disc =  prod.promotionID.Discount;
+    
+    
+    float x = 1 - ((float)disc/100);
+    long finalPrice = prod.price * x ;
+    
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
-    long  price = prod.price;
-    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
+    NSString *strFromInt = [[NSNumber numberWithLong:finalPrice] stringValue];
     prepTimeLabel.text = [NSString stringWithFormat: @"%@ %@", @"$", strFromInt]; ;
+    NSString *finalDiscount = [NSString stringWithFormat: @"%@ %@", @"%", [[NSNumber numberWithLong:prod.promotionID.Discount] stringValue]]; ;
+    
+    UILabel *discLabel = (UILabel*) [cell viewWithTag:104];
+    discLabel.text = finalDiscount;
+
     
     return cell;
     

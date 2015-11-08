@@ -11,7 +11,7 @@
 @interface Promotion : PFObject<PFSubclassing>
 
 + (NSString *)parseClassName;
-@property (nonatomic) long discount;
+@property (nonatomic) long Discount;
 @property (nonatomic, strong) NSString *objectId;
 @property (nonatomic, strong) NSDate *date;
 

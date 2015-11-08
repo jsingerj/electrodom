@@ -180,7 +180,7 @@
         NSString  * desc =[object objectForKey:@"description"];
         product.description =desc;
         product.Marca = [object objectForKey:@"Marca"];
-        product.promotion = [object objectForKey:@"promotionID"];
+        product.promotionID = [object objectForKey:@"promotionID"];
         // product.categoryId = [object objectForKey:@"categoryId"];
         destViewController.product = product;
         

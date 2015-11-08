@@ -19,7 +19,7 @@
         Product *product = (Product *)[[query whereKey:@"objectId" equalTo:@"U271hoqquY"] getFirstObject];
         ProductDetailViewController *destViewController = segue.destinationViewController;
         product.Marca = [product objectForKey:@"Marca"];
-        product.promotion = [product objectForKey:@"promotionID"];
+        product.promotionID = [product objectForKey:@"promotionID"];
         product.CategoryId = [product objectForKey:@"CategoryId"];
         destViewController.product = product;
         

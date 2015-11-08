@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 
 @interface Categorie : PFObject<PFSubclassing>
+@property (nonatomic, strong) NSString *name;
 
 + (NSString *)parseClassName;
 

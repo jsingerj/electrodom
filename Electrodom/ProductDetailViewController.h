@@ -13,6 +13,7 @@
 @interface ProductDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *product_price;
+@property (weak, nonatomic) IBOutlet UILabel *category;
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIImageView *image;

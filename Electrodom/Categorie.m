@@ -10,9 +10,12 @@
 
 @implementation Categorie
 
+@dynamic name;
+
 + (NSString *)parseClassName {
     return @"Category";
 }
+
 
 + (void)load {
     [self registerSubclass];

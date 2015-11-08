@@ -116,9 +116,9 @@
     cell.quantity.text = [NSString stringWithFormat:@"%d",quantiy];
     UILabel *prepTimeLabel = cell.total_price;
     long price = product.price;
-    if(product.promotion!=nil)
+    if(product.promotionID!=nil)
     {
-        NSString *idProm = product.promotion.objectId;
+        NSString *idProm = product.promotionID.objectId;
         PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
         Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
         long disc = [[prom objectForKey:@"Discount"]longValue];
@@ -153,9 +153,9 @@
    
     long price = product.price;
     
-    if(product.promotion!=nil)
+    if(product.promotionID!=nil)
     {
-        NSString *idProm = product.promotion.objectId;
+        NSString *idProm = product.promotionID.objectId;
         PFQuery *quer = [PFQuery queryWithClassName:@"Promotion"];
         Promotion *prom = (Promotion *)[[quer whereKey:@"objectId" equalTo:idProm] getFirstObject];
         long disc = [[prom objectForKey:@"Discount"]longValue];

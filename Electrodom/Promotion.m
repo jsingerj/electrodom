@@ -13,7 +13,11 @@
 + (NSString *)parseClassName {
     return @"Promotion";
 }
-@dynamic discount;
+
++ (void)load {
+    [self registerSubclass];
+}
+@dynamic Discount;
 @dynamic objectId;
 @dynamic date;
 
