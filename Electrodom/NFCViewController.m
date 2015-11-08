@@ -18,7 +18,7 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Product"];
         Product *product = (Product *)[[query whereKey:@"objectId" equalTo:@"U271hoqquY"] getFirstObject];
         ProductDetailViewController *destViewController = segue.destinationViewController;
-        product.brand = [product objectForKey:@"Marca"];
+        product.Marca = [product objectForKey:@"Marca"];
         product.promotion = [product objectForKey:@"promotionID"];
         product.CategoryId = [product objectForKey:@"CategoryId"];
         destViewController.product = product;

@@ -111,7 +111,7 @@
     [thumbnailImageView loadInBackground];
     cell.product = product;
     cell.product_name.text = [product name];
-    cell.product_brand.text = [product brand];
+    cell.product_brand.text = [product Marca];
     int quantiy = product.quantity;
     cell.quantity.text = [NSString stringWithFormat:@"%d",quantiy];
     UILabel *prepTimeLabel = cell.total_price;

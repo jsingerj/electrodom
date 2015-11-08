@@ -20,7 +20,7 @@
 @dynamic name;
 @dynamic description ;
 @dynamic picture;
-@dynamic brand;
+@dynamic Marca;
 @dynamic price;
 @dynamic objectId;
 @dynamic userId;

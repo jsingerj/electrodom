@@ -87,7 +87,7 @@
     
     NSString *str = [NSString stringWithFormat: @"%@ %@", @"$", strFromInt];
     product_price.text = str;
-    product_brand.text = self.product.brand;
+    product_brand.text = self.product.Marca;
     
     if(product.promotion!=nil){
         NSString *idProm = product.promotion.objectId;
@@ -190,10 +190,11 @@
     
     
     UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = prod.brand;
+    nameLabel.text = prod.name;
     
     UILabel *brandLabel = (UILabel*) [cell viewWithTag:102];
-    brandLabel.text = prod.brand;
+    NSString *brand =  prod.Marca;
+    brandLabel.text = brand;
     
     UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
     long  price = prod.price;

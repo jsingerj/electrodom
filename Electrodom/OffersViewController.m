@@ -179,7 +179,7 @@
         product.price = [[object objectForKey:@"price"] longValue];
         NSString  * desc =[object objectForKey:@"description"];
         product.description =desc;
-        product.brand = [object objectForKey:@"Marca"];
+        product.Marca = [object objectForKey:@"Marca"];
         product.promotion = [object objectForKey:@"promotionID"];
         // product.categoryId = [object objectForKey:@"categoryId"];
         destViewController.product = product;
