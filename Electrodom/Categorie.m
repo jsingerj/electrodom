@@ -11,6 +11,10 @@
 @implementation Categorie
 
 + (NSString *)parseClassName {
-    return @"Categorie";
+    return @"Category";
+}
+
++ (void)load {
+    [self registerSubclass];
 }
 @end

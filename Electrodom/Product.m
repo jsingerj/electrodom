@@ -26,7 +26,7 @@
 @dynamic userId;
 @dynamic quantity;
 @dynamic promotion;
-@dynamic categorie;
+@dynamic CategoryId;
 
 + (NSString *)parseClassName {
     return @"Product";

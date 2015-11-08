@@ -84,6 +84,7 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query includeKey:@"CategoryID"];
     
     return query;
 }
@@ -182,11 +183,13 @@
         product.promotion = [object objectForKey:@"promotionID"];
         
         
-        product.categorie = [object objectForKey:@"CategoryId"];
+
+        product.CategoryId = [object objectForKey:@"CategoryId"];
       */
         destViewController.product = product;
         
     }
+      
 }
 
 

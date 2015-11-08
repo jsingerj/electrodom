@@ -20,7 +20,7 @@
         ProductDetailViewController *destViewController = segue.destinationViewController;
         product.brand = [product objectForKey:@"Marca"];
         product.promotion = [product objectForKey:@"promotionID"];
-        product.categorie = [product objectForKey:@"CategoryId"];
+        product.CategoryId = [product objectForKey:@"CategoryId"];
         destViewController.product = product;
         
     }

@@ -9,6 +9,12 @@
 #import "ProductDetailViewController.h"
 #import "CartViewController.h"
 #import "GlobalElectrodom.h"
+
+@interface ProductDetailViewController()
+
+@property (nonatomic, strong) NSArray *results;
+@end
+
 @implementation ProductDetailViewController
 @synthesize product_description;
 @synthesize name;
@@ -22,6 +28,11 @@
 @synthesize discount;
 @synthesize line;
 @synthesize rightButton;
+
+
+
+
+
 -(void)setTotalProducts{
     GlobalElectrodom * instance = [GlobalElectrodom getInstance];
     int total = [instance getTotalProducts];
@@ -107,10 +118,9 @@
     
     
     
-       //PFQuery *query = [PFQuery queryWithClassName:@"Product"];
-      //[query whereKeyExists:@"promotionID"];
-      //[query whereKey:@"Category" equalTo:product.categorie];
     
+    
+    [self.tableView reloadData];
     
     [super viewDidLoad];
     
@@ -139,13 +149,36 @@
     // Dispose of any resources that can be recreated.
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Product"];
+    [query whereKeyExists:@"promotionID"];
+    NSLog(@"error: %@",product);
+
+    [query whereKey:@"CategoryId" equalTo:product.CategoryId];
+    [query whereKey:@"objectId" notEqualTo:product.objectId];
+    self.results = [query findObjects];
     
-    static NSString *simpleTableIdentifier = @"ProductCellCollection";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+    return self.results.count;
+    
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Product *prod = self.results[indexPath.row];
+    
+    static NSString *simpleTableIdentifier = @"RelatedArticleCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
     
     
-    PFFile *thumbnail = [object objectForKey:@"picture"];
+    PFFile *thumbnail = prod.picture;
     UIImageView* cardImage = (UIImageView*)[cell viewWithTag:100];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
         UIImage* myImage =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:thumbnail.url]]];
@@ -155,15 +188,20 @@
             [cardImage setImage:myImage];        });
     });
     
-    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [object objectForKey:@"name"];
-    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
-    long  price = [[object objectForKey:@"price"] longValue];
-    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
-    NSString *varyingString2 = strFromInt;
-    prepTimeLabel.text = [NSString stringWithFormat: @"%@ %@", @"$", varyingString2]; ;
     
-     return cell;
+    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+    nameLabel.text = prod.brand;
+    
+    UILabel *brandLabel = (UILabel*) [cell viewWithTag:102];
+    brandLabel.text = prod.brand;
+    
+    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:103];
+    long  price = prod.price;
+    NSString *strFromInt = [[NSNumber numberWithLong:price] stringValue];
+    prepTimeLabel.text = [NSString stringWithFormat: @"%@ %@", @"$", strFromInt]; ;
+    
+    return cell;
+    
 }
 
 

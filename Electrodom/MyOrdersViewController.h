@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Order.h"
+#import "Address.h"
 
 @interface MyOrdersViewController : ViewController<UITableViewDataSource, UITableViewDelegate>
 

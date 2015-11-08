@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic) int  quantity;
 @property (nonatomic, strong) Promotion *promotion;
-@property (nonatomic, strong) Categorie *categorie;
+@property (nonatomic, strong) Categorie *CategoryId;
 
 
 

@@ -10,7 +10,7 @@
 #import "Product.h"
 #import <ParseUI/ParseUI.h>
 
-@interface ProductDetailViewController : UIViewController
+@interface ProductDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *product_price;
 
@@ -28,6 +28,7 @@
 
 @property (nonatomic, strong) Product *product;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
