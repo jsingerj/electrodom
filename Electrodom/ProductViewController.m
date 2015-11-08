@@ -171,8 +171,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ProductDetailViewController *destViewController = segue.destinationViewController;
         
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        Product *product = [[Product alloc] initWithClassName:@"Product"];
+        Product  *product = (Product *)[self.objects objectAtIndex:indexPath.row];
+     /*   Product *product = [[Product alloc] initWithClassName:@"Product"];
         product.name = [object objectForKey:@"name"];
         product.picture = [object objectForKey:@"picture"];
         product.price = [[object objectForKey:@"price"] longValue];
@@ -183,6 +183,7 @@
         
         
         product.categorie = [object objectForKey:@"CategoryId"];
+      */
         destViewController.product = product;
         
     }

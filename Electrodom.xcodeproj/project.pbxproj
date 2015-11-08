@@ -47,6 +47,7 @@
 		C16253791BE6FA5800A26E68 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C16253781BE6FA5800A26E68 /* libstdc++.6.0.9.dylib */; };
 		C17D70BA1BD449B500ABE01E /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = C17D70B91BD449B500ABE01E /* Address.m */; };
 		C17D70BD1BD4557900ABE01E /* ProductOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = C17D70BC1BD4557900ABE01E /* ProductOrder.m */; };
+		C1A32E191BEF92530087D4D5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A32E181BEF92530087D4D5 /* TableViewController.m */; };
 		C1AB75481BDF2B7C000613B6 /* cart_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AB75471BDF2B7C000613B6 /* cart_ok.png */; };
 		C1AB754B1BDF2E21000613B6 /* ERP.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AB754A1BDF2E21000613B6 /* ERP.m */; };
 		C1AB754E1BDF375C000613B6 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AB754D1BDF375C000613B6 /* ConfirmationViewController.m */; };
@@ -158,6 +159,8 @@
 		C17D70B91BD449B500ABE01E /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 		C17D70BB1BD4557900ABE01E /* ProductOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductOrder.h; sourceTree = "<group>"; };
 		C17D70BC1BD4557900ABE01E /* ProductOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductOrder.m; sourceTree = "<group>"; };
+		C1A32E171BEF92530087D4D5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		C1A32E181BEF92530087D4D5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		C1AB75471BDF2B7C000613B6 /* cart_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart_ok.png; sourceTree = "<group>"; };
 		C1AB75491BDF2E21000613B6 /* ERP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERP.h; sourceTree = "<group>"; };
 		C1AB754A1BDF2E21000613B6 /* ERP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERP.m; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				C1AB754D1BDF375C000613B6 /* ConfirmationViewController.m */,
 				C162536A1BE57B9400A26E68 /* CashViewController.h */,
 				C162536B1BE57B9400A26E68 /* CashViewController.m */,
+				C1A32E171BEF92530087D4D5 /* TableViewController.h */,
+				C1A32E181BEF92530087D4D5 /* TableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 				C1F8E11A1BB7287100484FBA /* main.m in Sources */,
 				89CF06B81BC70832001DB09B /* CartViewController.m in Sources */,
 				89CF06F61BD6D28A001DB09B /* Promotion.m in Sources */,
+				C1A32E191BEF92530087D4D5 /* TableViewController.m in Sources */,
 				C17D70BA1BD449B500ABE01E /* Address.m in Sources */,
 				C1AB754B1BDF2E21000613B6 /* ERP.m in Sources */,
 				C1FFDF021BB73FFC0087DC68 /* HomeViewController.m in Sources */,

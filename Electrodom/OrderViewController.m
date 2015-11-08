@@ -270,6 +270,7 @@ numberOfRowsInComponent:(NSInteger)component
     [produtQuery fromLocalDatastore];
     products   = [produtQuery findObjects];
     
+
     for (int i = 0 ; i<[products count]; i++) {
         Product * p = (Product *)[products objectAtIndex:i];
         [order addProduct:p withQuantity:p.quantity];
@@ -355,6 +356,10 @@ numberOfRowsInComponent:(NSInteger)component
     }
     if(checkCC){
         order.card = [self getCardForOrder];
+        if(order.card==nil){
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Tarjeta Inválida" message:@"OK" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
     }
     [order saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         iteratorBlock(succeeded,error);

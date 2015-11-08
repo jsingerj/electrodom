@@ -37,6 +37,9 @@
     [self.activityIndicator stopAnimating];
 
     
+   
+              
+              
     }
 
 - (void)didReceiveMemoryWarning {
@@ -126,15 +129,23 @@
 ];
     
      */
-/*FORMA DE TRAER TODAS LAS ORDENES DE UN USUARIO, Y LUEGO EL PRODUCTO DE CADA ORDEN */
+/*FORMA DE TRAER TODAS LAS ORDENES DE UN USUARIO, Y LUEGO EL PRODUCTO DE CADA ORDEN
     //Traer todas las ordenes de un usuario:
     PFUser * user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"Orders"];
     PFQuery * query = [relation query];
+    [query includeKey:@"card"];
     NSArray * orders = [query findObjects];
     for(int i=0;i<[orders count];i++){
        //Obtengo la orden y pregunto por cada producto.
         Order * currentOrder=  (Order *)[orders objectAtIndex:i];
+        Card *add = currentOrder.card ;
+        NSLog(@"%@", add);
+        NSString * street = [add objectForKey:@"number"];
+        NSLog(@"%@", street);
+
+
+        
         PFRelation *productRelations = [currentOrder relationForKey:@"products"];
         PFQuery * queryProducts = [productRelations query];
         NSArray * products = [queryProducts findObjects];
@@ -144,9 +155,7 @@
         
 
     }
-
-
-    
+*/
     
     SWRevealViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeNavigationViewController"];
     [self presentViewController:viewController animated:YES completion:nil];
